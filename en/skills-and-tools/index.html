@@ -1,0 +1,689 @@
+<html lang="en-us">
+    <head>
+        <title>Hideki Kotsubo</title>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/en/styles.css?v=0.1" type="text/css">
+        <script defer src="/en/dom.js?v=0.1"></script>
+
+        <style type="text/css">
+            .main-container{
+                max-width: 100%;
+                padding: 0 2rem;
+            }
+            .row{
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+                grid-gap: 20px;
+            }
+            .col{
+                border: 1px solid #c0c0c0;
+                border-radius: 5px;
+                height: 7rem;
+                padding: 1rem;
+                background-color: #fffcf2;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-content: flex-start;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .row .col > div.header{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .row .col > div.header > h2{
+                font-size: 1.1rem;
+                margin: 0;
+                overflow: hidden;
+            }
+            .row .col > div.header > .year_finish{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+            .row .col > div.body{
+                height: 3rem;
+                overflow: hidden;
+            }
+            .row .col > div.footer{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 100%;
+                align-items: flex-end;
+            }
+            .row .col > div.footer > a{
+                text-decoration: none;
+                background-color: #ffde7f;
+                padding: 0.2rem 0.5rem;
+                border-radius: 4px;
+            }
+            .row .col > div.footer > .year_start{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+            .row .col > div.footer > .year_finish{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+        </style>
+
+
+    </head>
+    <body>
+        <main class="main-container">
+            <h1>Skills & Tools</h1>
+            <div class="list">
+            </div>
+        </main>
+    </div>
+
+
+    <script>
+        var DATASET = [
+            {
+                name: 'Portainer'
+                , info: 'Gerenciamento de containers Docker de forma simplificada'
+                , url: ''
+                , year_start: '2023'
+                , year_finish: '2023'
+            }
+            ,  {
+                name: 'Microsoft Azure'
+                , info: 'Hosting, Dedicated Servers, Storage, Database, Communcations Services, Domains, ...'
+                , url: ''
+                , year_start: '2021'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Amazon AWS'
+                , info: 'Hosting, Dedicated Servers, Storage, Database, Communcations Services, Domains, ...'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Google Cloud'
+                , info: 'Hosting, Dedicated Servers, Storage, Database, Communcations Services, Domains, ...'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Google Analytics'
+                , info: 'Instalação de tracking, configuraçõe e acessos'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Photoshop'
+                , info: 'Conceitos básicos, '
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Canva'
+                , info: 'Bela ferramenta para composição de documentos, imagens, trabalhos visuais em geral'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Storage NAS'
+                , info: 'Ferramentas para armazenado em dispositos locais'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'PLEX'
+                , info: 'Sofwtare para gerenciar sua biblioteca de mídias (fotos, vídeos, filmes, músicas, documentos)'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'VirtuaBox'
+                , info: 'Ferramenta para criação de máquinas virtuais'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'RaspberryPi'
+                , info: 'Uma fantástica plataforma para makers. Pode ser usada em diversas aplicações.'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Arduino'
+                , info: 'Para aplicações IoT, mundo maker, robôs, sensores. Automação residencial.'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'ESP32'
+                , info: 'Para aplicações IoT mais pontuais. Ótima para monitoramento com sensores. Automação residencial.'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Nginx'
+                , info: 'Ferramenta para gerenciamento de hospedagens. Bem popular, leve, de fácil gestão'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Lighttp'
+                , info: 'Ferramenta de hospedagem bem simplicada'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'IIS'
+                , info: 'Completa solução da Microsoft para gerenciamento de hospedagem.'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Microsoft SQL Server'
+                , info: 'Poderoso banco de dados Microsoft. Conheço características avançadas para gestão'
+                , url: ''
+                , year_start: '2000'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Oracle SQL Server'
+                , info: 'Banco de dados SQL de nível corporativo. Tenho conhecimento básicos'
+                , url: ''
+                , year_start: '2000'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Microsoft Access'
+                , info: 'Banco de dados SQL de nível corporativo. Tenho conhecimento básicos'
+                , url: ''
+                , year_start: '2000'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'MySQL'
+                , info: 'Popular banco de dados SQL. Conheço o básico para '
+                , url: ''
+                , year_start: '2000'
+                , year_finish: ''
+            }
+
+            ,  {
+                name: 'Classic ASP'
+                , info: 'Linguagem ASP (Active Server Pages) clássica da Microsoft. '
+                , url: ''
+                , year_start: '1998'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'VB Script'
+                , info: 'Linguagem da Microsoft, trabalhei para implementação de Macros em base de dados MS Access'
+                , url: ''
+                , year_start: '1998'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Visual Basic'
+                , info: 'Linguagem da Microsoft, trabalhei em projetos até o ano de 2008'
+                , url: ''
+                , year_start: '2000'
+                , year_finish: '2008'
+            }
+            ,  {
+                name: 'Pascal'
+                , info: 'Linguagem ASP clássica da Microsoft'
+                , url: ''
+                , year_start: '2000'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'HTML'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'CSS'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Javascript'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Python'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'AngularJS'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Bootstrap'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'MaterializeCss'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'JQuery'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'NodeJS'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'SQL'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'NoSQL'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Wordpress'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'MySQL'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'PostgresSQL'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'WEbApp'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Cordova'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Mikrotik'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Ubiquiti'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Docker'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Proxy Manager'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Windows'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'MacOS'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'REST FULL'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'TCP/IP Network'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'WebSockets'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'DNS'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Microsoft Word'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Microsoft Excel'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'MS Powerpoint'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'RealTime'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Apache'
+                , tags: ['web hosting','linux','web development','html']
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Lithium-Ion Battery'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Team Management'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Project Management'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Atendimento a cliente'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Comercial'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Financeiro'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Manutenção residencial'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Direção defensiva'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Manutenção residencial'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Linux'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'SSH'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Remote Desktop'
+                , tags: []
+                , info: 'Uso esta ferramenta para conectar a servidores remotos'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Linux'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Hamachi'
+                , tags: []
+                , info: 'Fantástica aplicação para criar uma rede de computadores pela Internet. Você podia ter, de forma bem fácil, sua LAN sem privada com computadores espalhados pelo mundo.'
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Logme-in'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Linux'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Skype'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Linux'
+                , tags: []
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            
+        ]
+
+        var DOM = {}
+
+        var load_projects = function(){
+            let DOM_list = document.querySelector('div.list');
+            DOM_list.classList.add('row')
+            DOM_list.innerHTML = '';
+
+            var currentYear = (new Date()).getFullYear();
+
+            for (var loopFor=0; loopFor<DATASET.length; loopFor++){
+                let item = DATASET[loopFor];
+
+                let DOM_item = document.createElement('div');
+                DOM_list.append(DOM_item);
+                DOM_item.classList.add('col');
+
+                let DOM_header = document.createElement('div');
+                DOM_header.classList.add('header');
+                DOM_item.append(DOM_header);
+
+                let DOM_body = document.createElement('div');
+                DOM_body.classList.add('body');
+                DOM_item.append(DOM_body);
+                DOM_body.innerHTML = item.info;
+
+                let DOM_footer = document.createElement('div');
+                DOM_footer.classList.add('footer');
+                DOM_item.append(DOM_footer);
+
+                let DOM_header_title = document.createElement('h2');
+                DOM_header_title.innerHTML = item.name;
+                DOM_header.append(DOM_header_title);
+
+
+                let year_finish;
+                if ( (item.year_finish=='')||(item.year_finish==undefined) ){
+                    year_finish = 'Since ' + item.year_start;
+                } else if ( (item.year_finish == item.year_start) ){
+                    year_finish = item.year_finish;
+                } else {
+                    year_finish = 'From ' + item.year_start + ' to ' + item.year_finish;
+                }
+                let DOM_year_finish = document.createElement('div');
+                DOM_year_finish.innerHTML = year_finish;
+                DOM_year_finish.classList.add('year_finish');
+                DOM_footer.append(DOM_year_finish);
+
+
+                if ( (item.url)&&(item.url!='') ){
+                    let DOM_footer_button = document.createElement('a');
+                    DOM_footer_button.innerHTML = 'Saiba mais';
+                    DOM_footer_button.classList.add('button');
+                    DOM_footer_button.setAttribute('href',item.url);
+                    DOM_footer.append(DOM_footer_button);
+                }
+            }
+        }
+
+
+        load_projects();
+    </script>
+    </body>
+</html>

@@ -1,0 +1,297 @@
+<html lang="en-us">
+    <head>
+        <title>Hideki Kotsubo</title>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/en/styles.css?v=0.1" type="text/css">
+        <script defer src="/en/dom.js?v=0.1"></script>
+
+        <style type="text/css">
+            .main-container{
+                max-width: 100%;
+                padding: 0 2rem;
+            }
+            .row{
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+                grid-gap: 20px;
+            }
+            .col{
+                border: 1px solid #c0c0c0;
+                border-radius: 5px;
+                height: 7rem;
+                padding: 1rem;
+                background-color: #fffcf2;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-content: flex-start;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .row .col > div.header{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .row .col > div.header > h2{
+                font-size: 1.1rem;
+                margin: 0;
+                overflow: hidden;
+            }
+            .row .col > div.header > .year_finish{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+            .row .col > div.body{
+                height: 3rem;
+                overflow: hidden;
+            }
+            .row .col > div.footer{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 100%;
+                align-items: flex-end;
+            }
+            .row .col > div.footer > a{
+                text-decoration: none;
+                background-color: #ffde7f;
+                padding: 0.2rem 0.5rem;
+                border-radius: 4px;
+            }
+            .row .col > div.footer > .year_start{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+            .row .col > div.footer > .year_finish{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+        </style>
+
+
+    </head>
+    <body>
+        <main class="main-container">
+            <h1>My Projects</h1>
+            <div class="list">
+            </div>
+        </main>
+    </div>
+
+
+    <script>
+        var DATA_PROJECTS = [
+            {
+                name: 'Air Race X'
+                , info: 'Software para uma nova modalidade de corrida aérea'
+                , url: 'cases/air-race-x'
+                , year_start: '2023'
+                , year_finish: '2023'
+            }
+            ,  {
+                name: 'Clube Saúde'
+                , info: 'Clube de fidelidade do setor de saúde'
+                , url: ''
+                , year_start: '2021'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Portal ANTP'
+                , info: 'Um portal de notícias, informações, eventos, ...'
+                , url: 'cases/antp-portal'
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'ERP R1 Audio Visual'
+                , info: 'Sistema ERP customizado para a R1 AudioVisual'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'DooDoo'
+                , info: 'App para game online do tipo Quiz, em real time'
+                , url: ''
+                , year_start: '2020'
+                , year_finish: '2021'
+            }
+            ,  {
+                name: 'Diário do Transporte'
+                , info: 'Portal de notícias com conteúdos exclusivo do segmento de transporte urbano'
+                , url: ''
+                , year_start: '2020'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Kander - Professores'
+                , info: 'Ferramenta para criação de cursos on-line e criação de video-slideshows'
+                , url: ''
+                , year_start: '2020'
+                , year_finish: '2021'
+            }
+            ,  {
+                name: 'ClickOffice'
+                , info: 'Sistema para aluguel de salas comerciais por hora'
+                , url: ''
+                , year_start: '2019'
+                , year_finish: '2020'
+            }
+            ,  {
+                name: 'Letsee'
+                , info: 'Plataforma de publicação de serviços para Eventos'
+                , url: ''
+                , year_start: '2019'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Bise'
+                , info: 'Plataforma para alugar equipamentos diversos'
+                , url: ''
+                , year_start: '2020'
+                , year_finish: '2020'
+            }
+            ,  {
+                name: 'NIVEA - PGN'
+                , info: 'Portal com informações de performance de vendas'
+                , url: ''
+                , year_start: '2020'
+                , year_finish: '2024'
+            }
+            ,  {
+                name: 'NIVEA - TopDistribuidores'
+                , info: 'Campanha de Incentivo para Distribuidores'
+                , url: ''
+                , year_start: '2021'
+                , year_finish: '2022'
+            }
+            ,  {
+                name: 'Soroban'
+                , info: 'App simples para introdução ao conceito do ábaco japonês'
+                , url: ''
+                , year_start: '2023'
+                , year_finish: '2023'
+            }
+            ,  {
+                name: 'Cashflow'
+                , info: 'Plataforma para registro de receitas e despesas'
+                , url: ''
+                , year_start: '2023'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Passwords'
+                , info: 'App para gestão de senhas da forma tradicional'
+                , url: ''
+                , year_start: '2023'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Cobens - Trustee'
+                , info: 'Plataforma para intermediação do processo Compra/Venda de imóveis'
+                , url: ''
+                , year_start: '2021'
+                , year_finish: '2023'
+            }
+            ,  {
+                name: 'ThermalCamera'
+                , info: ''
+                , url: ''
+                , year_start: '2021'
+                , year_finish: '2022'
+            }
+            ,  {
+                name: 'EccoSafety'
+                , info: ''
+                , url: ''
+                , year_start: '2015'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'CEMA'
+                , info: ''
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2009'
+            }
+            ,  {
+                name: 'Mailboy'
+                , info: 'Sistema para envio de e-mail marketing'
+                , url: ''
+                , year_start: '2007'
+                , year_finish: '2019'
+            }
+        ]
+
+        var DOM = {}
+
+        var load_projects = function(){
+            let DOM_list = document.querySelector('div.list');
+            DOM_list.classList.add('row')
+            DOM_list.innerHTML = '';
+
+            var currentYear = (new Date()).getFullYear();
+
+            for (var loopFor=0; loopFor<DATA_PROJECTS.length; loopFor++){
+                let item = DATA_PROJECTS[loopFor];
+
+                let DOM_item = document.createElement('div');
+                DOM_list.append(DOM_item);
+                DOM_item.classList.add('col');
+
+                let DOM_header = document.createElement('div');
+                DOM_header.classList.add('header');
+                DOM_item.append(DOM_header);
+
+                let DOM_body = document.createElement('div');
+                DOM_body.classList.add('body');
+                DOM_item.append(DOM_body);
+                DOM_body.innerHTML = item.info;
+
+                let DOM_footer = document.createElement('div');
+                DOM_footer.classList.add('footer');
+                DOM_item.append(DOM_footer);
+
+                let DOM_header_title = document.createElement('h2');
+                DOM_header_title.innerHTML = item.name;
+                DOM_header.append(DOM_header_title);
+
+
+                let year_finish;
+                if ( (item.year_finish=='')||(item.year_finish==undefined) ){
+                    year_finish = 'Since ' + item.year_start;
+                } else if ( (item.year_finish == item.year_start) ){
+                    year_finish = item.year_finish;
+                } else {
+                    year_finish = 'From ' + item.year_start + ' to ' + item.year_finish;
+                }
+                let DOM_year_finish = document.createElement('div');
+                DOM_year_finish.innerHTML = year_finish;
+                DOM_year_finish.classList.add('year_finish');
+                DOM_footer.append(DOM_year_finish);
+
+
+                if ( (item.url)&&(item.url!='') ){
+                    let DOM_footer_button = document.createElement('a');
+                    DOM_footer_button.innerHTML = 'Saiba mais';
+                    DOM_footer_button.classList.add('button');
+                    DOM_footer_button.setAttribute('href',item.url);
+                    DOM_footer.append(DOM_footer_button);
+                }
+            }
+        }
+
+
+        load_projects();
+    </script>
+    </body>
+</html>

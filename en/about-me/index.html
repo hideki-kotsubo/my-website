@@ -1,0 +1,234 @@
+<html lang="en-us">
+    <head>
+        <title>Hideki Kotsubo</title>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/en/styles.css?v=0.1" type="text/css">
+        <script defer src="/en/dom.js?v=0.1"></script>
+
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            [class*="col-"] {
+                float: left;
+                /*padding: 15px;*/
+            }
+
+            html {
+                font-family: "Lucida Sans", sans-serif;
+            }
+
+            .header {
+                background-color: #9933cc;
+                color: #ffffff;
+                padding: 15px;
+            }
+
+            .menu ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .menu li {
+                padding: 8px;
+                margin: 7px 0;
+                background-color: #33b5e5;
+                color: #ffffff;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            }
+
+            .menu li:hover {
+                background-color: #0099cc;
+            }
+
+            .aside {
+                background-color: #33b5e5;
+                padding: 15px;
+                color: #ffffff;
+                text-align: center;
+                font-size: 14px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            }
+
+            .footer {
+                background-color: #0099cc;
+                color: #ffffff;
+                text-align: center;
+                font-size: 12px;
+                padding: 15px;
+            }
+
+            /* For mobile phones: */
+            [class*="col-"] {
+                width: 100%;
+            }
+
+            @media only screen and (min-width: 600px) {
+                /* For tablets: */
+                .col-s-1 {width: 8.33%;}
+                .col-s-2 {width: 16.66%;}
+                .col-s-3 {width: 25%;}
+                .col-s-4 {width: 33.33%;}
+                .col-s-5 {width: 41.66%;}
+                .col-s-6 {width: 50%;}
+                .col-s-7 {width: 58.33%;}
+                .col-s-8 {width: 66.66%;}
+                .col-s-9 {width: 75%;}
+                .col-s-10 {width: 83.33%;}
+                .col-s-11 {width: 91.66%;}
+                .col-s-12 {width: 100%;}
+            }
+            @media only screen and (min-width: 768px) {
+                /* For desktop: */
+                .col-1 {width: 8.33%;}
+                .col-2 {width: 16.66%;}
+                .col-3 {width: 25%;}
+                .col-4 {width: 33.33%;}
+                .col-5 {width: 41.66%;}
+                .col-6 {width: 50%;}
+                .col-7 {width: 58.33%;}
+                .col-8 {width: 66.66%;}
+                .col-9 {width: 75%;}
+                .col-10 {width: 83.33%;}
+                .col-11 {width: 91.66%;}
+                .col-12 {width: 100%;}
+
+                .menu li {
+                    margin: 10px 0;
+                }
+                .aside{
+                    margin: 10px 0;
+                }
+                .mainContainer{
+                    padding: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+
+            <div class="row">
+                <div class="col-2 col-s-3 menu">
+                    <ul>
+                        <li>Quem sou</li>
+                        <li>Juventude</li>
+                        <li>Formação Acadêmica</li>
+                        <li>Vida Adulta</li>
+                    </ul>
+                </div>
+
+                <div class="col-7 col-s-9 mainContainer">
+                    
+
+                    <h1>Quem é Hideki?</h1>
+                    
+                        <p>
+                            Christian Hideki Kotsubo, brasileiro, de descendência japonesa. 
+                        </p>
+                        <p>
+                            Adoro música, culinária, fillosofia, tecnologia, ciências exatas, humanas e religiosas.
+                        </p>
+                        <p>
+                            Curto músicas eruditas, folk-musics (independente do país), rock. Adoro piano, harmonica, violão, taiko(tambores).
+                            
+                            Minhas músicas preferidas são aquelas quando executadas/tocadas em um único instrumento (solo), quer seja num piano, violão, berimbau ou mesmo no batuque na mão.
+                        </p>
+                        <p>
+                            Empreendedor, trabalho com autônomo desde 2002.
+                            Gosto do desafio de buscar soluções, de resolver problemas, de inventar, ser criativo, e não apenas encontrar uma solução, mas a mais adequada solução para cada situação.
+                        </p>
+                        <p>
+                            Processos, organização, metodologias, gosto de explorar modelos e revirar conceitos, em busca de compreensão para me sentir confortável quando precisar usá-los.
+                        </p>
+                    
+                        
+                    <h2>Minha infância</h2>
+                        <p>Nasci e cresci no interior paulista, em uma cidade pequena, com uma grande comunidade japonesa.</p>
+                        <p>Durante minha juventude, passei a maior parte do tempo nesta cidade, entre amigos também descendentes de japoneses e amigos não japoneses</p>
+                        <p>Mas por conta da minhas raízes japonesas, a minha formação cultural foi em maior parte influenciada pelas tradições japonesas. Religião, Culinária, Contos, Músicas, Artes, ...</p>
+                        <p>Assim, eu conheço mais de tradições japonesas do que brasileiras</p>
+                        <p>Mas isso não significa que prefiro a cultura japonesa.</p>
+                        <p>Eu acredito que o Brasil é um país rico, rico em terras, em pessoas, em diversidade cultural. Um país aberto ao diferente, que mistura todas as opções e cria caminhos para o futuro igualitário</p>
+
+                        <h2>Formação Acadêmica</h2>
+                        <p>Eu sempre me dei bem nos estudos de matérias Exatas. Matemática, Física, Química foram sempre minhas opções preferidas, e então fazer faculdade de Engenharia era minha primeira opção</p>
+                        <p>E, estudar nas melhores faculdades eram minhas metas: a bem conceituada Univerdade de São Paulo (USP) e o Instituto de Tecnologia Aeronática (ITA) eram minhas escolhas.</p>
+                        <p>No caso do Instituto Tecnológico de Aeronática, eu sonhava estudar Engenharia Aeronáutica, algo que era um assunto que eu tive pouco conhecimento durante meus anos de colégio. Mas era um desejo de me aventurar por essa ciência.</p>
+
+                        <p>Então, ao final dos meus 17 anos, chegaram a hora dos vestibulares.</p>
+                        <p>Na época, além dessas duas universidades, haviam outras duas também prestigiadas opções, as quais optei por participar do processo de seleção somente por desencargo, mas 
+                            devido ao meu interesse ser baixo nestas outras, eu escolhi uma opção de faculdade diferente de engenharia, uma faculdade que eu não tinha muito idéia do que era.
+                            No fundo, eu não havia a menor intenção de estudar nestas duas universidades. 
+                        </p>
+                        <p>E então, em 1996 eu ingressei na faculdade de Ciência da Computação na Universidade Estadual Paulista</p>
+                        <p>
+                            Eu obtive os melhores resultados justamente nas duas opções que menos objetivava. Eu consegui uma vaga para estudar Ciências da Computação.
+                            Um assunto recente para a época, e algo que eu não tinha a menor idéia do que eu iria estudar.
+                        </p>
+
+                        <p>Eu mal sabia o que era um computador. Não sabia para que servia um computador, além de ser um aparelho para jogar alguns video-games bem simples e usar para desenhar e colorir.</p>
+
+                        <p>A frustração por não ter conseguido meu objetivo de estudar Engenharia me tomou nos primeiros meses do ano de 1996. Lembro de minha mãe dizendo: comece a estudar esta faculdade e em paralelo você pode tentar novamente o vestibular ao final do ano, e talvez você consiga iniciar engenharia no próximo ano.</p>
+
+                        <p>E então, iniciei minha vida no mundo da computação.</p>
+                        <p>Mas bastaram 2 meses para eu me apaixonar por este mundo desconhecido, por esta "engenharia" tecnológica que começava a se popularizar, 
+                            cheia de possibilidades e com limites desconhecidos</p>
+                        <!--
+                            <p>Um mundo que continua me encantando e que atualmente está em todo lugar e em todo momento nas nossas vidas.</p>
+                            <p>Computação, Informática, Tecnologia da Informação, Tecnologia de Comunicação, são inúmeros nomes para esta ciência</p>
+                            <h2>Vida profissional</h2>
+                        -->
+                        <p>O gosto pela computação cresceu exponecialmente em mim, e ao final do ano de 1999, após 3 anos e meio de faculdade, consegui uma oportunidade 
+                            de iniciar minha vida profissional.
+                            Como eu havia conseguido adiantar todas as matérias acadêmicas que pude, em meu último semestre da. faculdade eu havia apenas 1 matéria a cursar e o projeto de conclusão de curso.
+                            Com 4 dias da semana livres, consegui uma oportunidade para trabalhar em uma empresa mas na cidade de São Paulo.
+                            Assim, no último semestre da faculdade, em 1999, minha vida era entre a cidade de São Paulo (de segunda a quinta), a cidade de Bauru (Sexta) e a minha cidade natal Lins aos sábados e domingos.
+
+                        </p>
+                        <p>Conclui então minha faculdade ao final do ano de 1999, e em 2000 eu estava me mudando para São Paulo, o polo Tecnológico no Brasil na época.</p>
+                    
+
+
+                    <h2>Meu projeto de graduação</h2>
+                        <p>Em minha equipe de projeto de conclusão estavam duas amigas, que juntos, misturamos nossos temas de interesses:
+                            Edução, Inteligência Artificial, e Internet
+
+
+                        </p>
+                        <p>O título do nosso projeto era: Ensino a Distância Monitorado pela Internet com Uso de Inteligência Artificial</p>
+                        <p></p>
+
+                </div>
+
+                <div class="col-3 col-s-12 right">
+                    <div class="aside">
+                        <h2>What?</h2>
+                        <p>Chania is a city on the island of Crete.</p>
+                        <h2>Where?</h2>
+                        <p>Vancouver - BC - Canada</p>
+                        <h2>How?</h2>
+                        <p>You can reach Chania airport from all over Europe.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="footer">
+        <p>Resize the browser window to see how the content respond to the resizing.</p>
+        </div>
+
+    </body>
+</html>
