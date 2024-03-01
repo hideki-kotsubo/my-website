@@ -13,24 +13,24 @@ var myDom = function(){
 
     var URLBASE = '/en';
     var header_nav_options = [
-        {   name: 'About me', url: URLBASE + '/about-me' }
-        , {   name: 'Clients', url: URLBASE + '/clients' }
-        , {   name: 'Projects', url: URLBASE + '/projects' }
-        , {   name: 'Things I\'m good at', url: URLBASE + '/things-im-good-at' }
-        , {   name: 'Skills & Tools', url: URLBASE + '/skills-and-tools' }
-        , {   name: 'Services Offering', url: URLBASE + '/services-offering' }
-        , {   name: 'Contact Me', url: URLBASE + '/contact-me' }
+        {   name: 'About me', url: URLBASE + '/about-me/' }
+        , {   name: 'Clients', url: URLBASE + '/clients/' }
+        , {   name: 'Projects', url: URLBASE + '/projects/' }
+        , {   name: 'Things I\'m good at', url: URLBASE + '/things-im-good-at/' }
+        , {   name: 'Skills & Tools', url: URLBASE + '/skills-and-tools/' }
+        , {   name: 'Services Offering', url: URLBASE + '/services-offering/' }
+        , {   name: 'Contact Me', url: URLBASE + '/contact-me/' }
     ]
 
 
     var footer_nav_options = [
-        {   name: 'About me', url: URLBASE + '/about-me' }
-        , {   name: 'Clients', url: URLBASE + '/clients' }
+        {   name: 'About me', url: URLBASE + '/about-me/' }
+        , {   name: 'Clients', url: URLBASE + '/clients/' }
         , {   name: 'Projects', url: URLBASE + '/projects' }
-        , {   name: 'Things I\'m good at', url: URLBASE + '/things-im-good-at' }
-        , {   name: 'Skills & Tools', url: URLBASE + '/skills-and-tools' }
-        , {   name: 'Services Offering', url: URLBASE + '/services-offering' }
-        , {   name: 'Contact Me', url: URLBASE + '/contact-me' }
+        , {   name: 'Things I\'m good at', url: URLBASE + '/things-im-good-at/' }
+        , {   name: 'Skills & Tools', url: URLBASE + '/skills-and-tools/' }
+        , {   name: 'Services Offering', url: URLBASE + '/services-offering/' }
+        , {   name: 'Contact Me', url: URLBASE + '/contact-me/' }
     ]
         
     var setup = function(){
