@@ -105,6 +105,14 @@ var myDom = function(){
         
         
 
+        var DOM_H1_list = DOM.body.querySelectorAll('h1');
+        if (DOM_H1_list.length>0){
+            var DOM_PAGE_H1 = DOM_H1_list[0];
+            var DOM_PAGE_TITLE = DOM_PAGE_H1.cloneNode(true);
+            DOM.header.prepend(DOM_PAGE_TITLE);
+        }
+
+
     }
 
     var footer_load = function(){

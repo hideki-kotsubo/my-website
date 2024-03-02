@@ -75,6 +75,7 @@ header > nav > ul li a {
     position: relative;
     left: 0;
     right: 0;
+    height: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -211,14 +212,19 @@ nav.sideNavLeft ul li a{
 nav.sideNavLeft ul li.active{
     color: var(--main-bg-color);
 }
+/*
 nav.sideNavLeft ul li:hover{
     color: var(--main-bg-color);
     background-color: #f6f6f6;
     border-left: 7px solid var(--main-bg-color);
     border-radius: 4px 0 0 4px;
 }
+*/
 
 
+header h1{
+    display: none;
+}
 
 
 
@@ -236,17 +242,75 @@ nav.sideNavLeft ul li:hover{
     margin: 1rem;
 }
 
+
+
+.page.project_case .contentInfoBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.page.project_case {
+    background: transparent;
+    border: 0;
+    padding: 2rem;
+}
+.page.project_case div.content{
+
+    background-color: #ffffffb3;
+    padding: 1rem;
+    border-radius: 9px;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.page.project_case div.content h2{
+    margin: 0
+}
+
+.page.project_case div.content p{
+    margin: 1rem 0 0 0;
+}
+.page.project_case div.content a{
+    font-weight: 600;
+    color:orangered;
+}
+
+
+
 @media only screen and (max-width: 600px) {
+    html{
+        font-size: 16px;
+    }
+    body{
+        background-size: contain;
+    }
     header{
         background-color: #fff;
         margin-bottom: 10px;
         height: var(--header-bar-height);
         position: fixed;
     }
+    header h1{
+        position: absolute;
+        left: 70px;
+        right: 20px;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 50px;
+        overflow: hidden;
+        width: auto;
+        height: 50px;
+        display: block;
+    }
+    footer{
+        display: none;
+    }
     .sidenavHamburguer {
         display: block;
     }
-
     nav.sideNavLeft{
         display: block;
         position: fixed;
@@ -261,5 +325,21 @@ nav.sideNavLeft ul li:hover{
         right: 0;
         margin-top: 1rem;
         margin-bottom: 1rem;
+    }
+
+
+    .page.page.project_case h1:first-child{
+        display: none;
+    }
+
+    .page.project_case .contentInfoBox{
+        display: flex;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: space-between;
+    }
+    .page.project_case img{
+        width: 100% !important;
     }
 }
