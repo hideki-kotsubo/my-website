@@ -11,54 +11,465 @@
         <script defer src="script.js"></script>
         <!--<script type="module" src="script.js"></script>-->
 
+        <style type="text/css">
+            .main-container{
+                max-width: 100%;
+                padding: 0 2rem;
+            }
+            .row{
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+
+                grid-gap: 20px;
+            }
+            .col{
+                border: 1px solid #dbdada;
+                border-radius: 2px;
+                height: 11rem;
+                padding: 1rem;
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-content: flex-start;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .row .col > div.header{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .row .col > div.header > h2{
+                font-size: 1.1rem;
+                margin: 0;
+                overflow: hidden;
+            }
+            .row .col > div.header > .year_finish{
+                font-size: 0.9rem;
+                margin: 0;
+            }
+            .row .col > div.body{
+                height: 8rem;
+                overflow: hidden;
+            }
+            .row .col > div.footer{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 100%;
+                align-items: flex-end;
+            }
+            .row .col > div.footer > a{
+                text-decoration: none;
+                background-color: #ffde7f;
+                padding: 0.2rem 0.5rem;
+                border-radius: 4px;
+            }
+            .row .col > div.footer > .year_start{
+                font-size: 1.1rem;
+                margin: 0;
+            }
+            .row .col > div.footer > .year_finish{
+                font-size: 0.8rem;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
 
         <main class="main-container">
             <h1>My Clients</h1>
-
-            <ul>
-                <li>
-                    <h2>R1 Audio Visual</h2>
-                    <div class="content">
-                        
-                        <p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>
-                        <p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>
-                        <p>Atualmente o foco da empresa é em oferecer todo o suporte operacional para a realização de eventos corporativos</p>
-
-
-
-                    </div>
-                </li>
-                <li>
-                    <h2>Y. Takaoka Empreendimentos S.A</h2>
-                </li>
-                <li>
-                    <h2>Takaoka S.A</h2>
-                </li>
-                <li>
-                    <h2>Grupo Ana Rosa</h2>
-                </li>
-                <li>
-                    <h2>Gênesis</h2>
-                </li>
-                <li>
-                    <h2>Diário do Transporte</h2>
-                </li>
-                <li>
-                    <h2>Air Race X</h2>
-                </li>
-                <li>
-                    <h2>NIVEA</h2>
-                </li>
-                <li>
-                    <h2>Colgate</h2>
-                </li>
-                <li>
-                    <h2>Grupo Ana Rosa</h2>
-                </li>
-            </ul>
+            <div class="list">
+            </div>
         </main>
         
+
+
+    <script>
+        var DATASET = [
+            {
+                name: 'R1 Audio Visual'
+                , info: '<p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>' +
+                        '<p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>' +
+                        '<p>Atualmente o foco da empresa é em oferecer todo o suporte operacional para a realização de eventos corporativos</p>'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: ''
+            },
+            {
+                name: 'TES Cenografia'
+                , info: '<p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>' +
+                        '<p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>' +
+                        '<p>Atualmente o foco da empresa é em oferecer todo o suporte operacional para a realização de eventos corporativos</p>'
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            },
+            {
+                name: '42 Labs'
+                , info: '<p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>' +
+                        '<p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>' +
+                        '<p>Atualmente o foco da empresa é em oferecer todo o suporte operacional para a realização de eventos corporativos</p>'
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Y. Takaoka Empreendimentos S.A'
+                , info: ''
+                , url: ''
+                , year_start: '2021'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Takaoka S.A'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Grupo Ana Rosa'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Gênesis Empreendimentos Imobiliário'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Diário do Transporte'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Pathfinder'
+                , info: ''
+                , url: ''
+                , year_start: '2023'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'NIVEA'
+                , info: ''
+                , url: ''
+                , year_start: '2021'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Colgate'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'ANTP'
+                , info: ''
+                , url: ''
+                , year_start: '2012'
+                , year_finish: ''
+            }
+            ,  {
+                name: 'EccoSafety'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'CEMA'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Revista CULT'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Trapézio'
+                , info: 'É uma associação sem fins lucrativos que, desde 1995, desenvolve ações de apoio à escolarização beneficiando alunos, pais e educadores. '
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Rosa Rosarum'
+                , info: 'Um espaço para eventos, nascido do sonho de construir um dos mais belos buffets para a cidade de São Paulo.'
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Barilla'
+                , info: 'Um espaço para eventos, nascido do sonho de construir um dos mais belos buffets para a cidade de São Paulo.'
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Trade+'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'CBCS'
+                , info: 'O Conselho Brasileiro de Construção Sustentável Organização da Sociedade Civil de Interesse Público, de âmbito nacional, criada em agosto de 2007 como resultado da articulação entre lideranças empresariais, pesquisadores, consultores, profissionais atuantes e formadores de opinião.'
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Amway'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Cecília Centurion'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Patrícia Centurion'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Comunicare'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'IECE'
+                , info: 'Instituto Europeu de Ciências Endoscópicas'
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'ProDelphus'
+                , info: 'É uma empresa que desenvolve novas tecnologias, métodos e materiais, contribuindo para a modernização do ensino cirúrgico utilizando simuladores e possibilitando o uso destes recursos na medicina prática.'
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Hugo Sarmento'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'IB Modas'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Invensys'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Ponto Link Eventos'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Práxis Art'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Primeiro Programa'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Profer'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Mídia Grupo'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'R Cunha'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Karl Storz Brazil'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Columbia'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Taura'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'SmartCara'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Bise'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Cobens'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'WSB'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Akadict'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            ,  {
+                name: 'Kander'
+                , info: ''
+                , url: ''
+                , year_start: ''
+                , year_finish: ''
+            }
+            
+            
+        ]
+
+        var DOM = {}
+
+        var load_dataset = function(){
+            let DOM_list = document.querySelector('div.list');
+            DOM_list.classList.add('row')
+            DOM_list.innerHTML = '';
+
+            var currentYear = (new Date()).getFullYear();
+
+            for (var loopFor=0; loopFor<DATASET.length; loopFor++){
+                let item = DATASET[loopFor];
+
+                let DOM_item = document.createElement('div');
+                DOM_list.append(DOM_item);
+                DOM_item.classList.add('col');
+
+                let DOM_header = document.createElement('div');
+                DOM_header.classList.add('header');
+                DOM_item.append(DOM_header);
+
+                let DOM_body = document.createElement('div');
+                DOM_body.classList.add('body');
+                DOM_item.append(DOM_body);
+                DOM_body.innerHTML = item.info;
+
+                let DOM_footer = document.createElement('div');
+                DOM_footer.classList.add('footer');
+                DOM_item.append(DOM_footer);
+
+                let DOM_header_title = document.createElement('h2');
+                DOM_header_title.innerHTML = item.name;
+                DOM_header.append(DOM_header_title);
+
+
+                let year_finish;
+                if ( (item.year_finish=='')||(item.year_finish==undefined) ){
+                    year_finish = 'Since ' + item.year_start;
+                } else if ( (item.year_finish == item.year_start) ){
+                    year_finish = item.year_finish;
+                } else {
+                    year_finish = 'From ' + item.year_start + ' to ' + item.year_finish;
+                }
+                let DOM_year_finish = document.createElement('div');
+                DOM_year_finish.innerHTML = year_finish;
+                DOM_year_finish.classList.add('year_finish');
+                DOM_footer.append(DOM_year_finish);
+
+
+                if ( (item.url)&&(item.url!='') ){
+                    let DOM_footer_button = document.createElement('a');
+                    DOM_footer_button.innerHTML = 'Saiba mais';
+                    DOM_footer_button.classList.add('button');
+                    DOM_footer_button.setAttribute('href',item.url);
+                    DOM_footer.append(DOM_footer_button);
+                }
+            }
+        }
+
+
+        load_dataset();
+    </script>
     </body>
 </html>

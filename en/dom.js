@@ -51,6 +51,7 @@ var myDom = function(){
         DOM.body.prepend(DOM.header);
         
         DOM.header_nav = document.createElement('nav');
+        DOM.header_nav.classList.add('topMenu')
         DOM.header.prepend(DOM.header_nav);
 
         DOM.header_nav_ul = document.createElement('ul');
@@ -66,6 +67,44 @@ var myDom = function(){
             
             DOM.header_nav_ul.appendChild( DOM_li );
         }
+
+
+
+        DOM.header_sideNavHamburger = document.createElement('div');
+        DOM.header_sideNavHamburger.classList.add('sidenavHamburguer');
+        DOM.header.append(DOM.header_sideNavHamburger);
+        DOM.header_sideNavHamburger.innerHTML = '<input type="checkbox" /><span></span><span></span><span></span>'
+
+        DOM.sideNavLeft = document.createElement('nav');
+        DOM.sideNavLeft.classList.add('sideNavLeft');
+        DOM.body.append(DOM.sideNavLeft);
+
+        DOM.sideNavLeft_ul = document.createElement('ul');
+        DOM.sideNavLeft_ul.classList.add('navMenuLeft');
+        DOM.sideNavLeft.append(DOM.sideNavLeft_ul);
+
+        for (var loopFor=0; loopFor<header_nav_options.length; loopFor++){
+            var item = header_nav_options[loopFor]
+            let DOM_li = document.createElement('li');
+            let DOM_a = document.createElement('a');
+            DOM_a.innerHTML = item.name;
+            DOM_li.appendChild( DOM_a );
+            DOM_a.setAttribute('href', item.url);
+            
+            DOM.sideNavLeft_ul.appendChild( DOM_li );
+        }
+        
+
+        DOM.header_sideNavHamburger.addEventListener('click',function(event){
+            if (DOM.sideNavLeft.classList.contains('show')){
+                DOM.sideNavLeft.classList.remove('show')
+            } else {
+                DOM.sideNavLeft.classList.add('show')
+            }
+        });
+        
+        
+
     }
 
     var footer_load = function(){
