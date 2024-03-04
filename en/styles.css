@@ -82,10 +82,12 @@ header > nav > ul li a {
 }
 
 .page{
+    /*
     background: #fff;
     border: 1px solid #efeeee;
     border-radius: 10px;
     padding: 2rem;
+    */
 }
 
 footer{
@@ -245,6 +247,21 @@ header h1{
 
 
 
+
+.page.project_case {
+    /*background: transparent;
+    border: 0;
+    padding: 2rem;
+    */
+}
+.page.project_case div.content{
+
+    background-color: rgb(255 255 255 / 93%);
+    padding: 1rem;
+    border-radius: 9px;
+    margin: 1rem 0;
+    text-align: left;
+}
 .page.project_case .contentInfoBox{
     display: flex;
     flex-direction: row;
@@ -252,19 +269,9 @@ header h1{
     flex-wrap: nowrap;
     justify-content: space-between;
 }
-
-.page.project_case {
-    background: transparent;
-    border: 0;
-    padding: 2rem;
-}
-.page.project_case div.content{
-
-    background-color: #ffffffb3;
-    padding: 1rem;
-    border-radius: 9px;
-    margin: 1rem 0;
-    text-align: left;
+.page.project_case .contentInfoBox img.projectLogo{
+    max-width: 400px;
+    border-radius: 10px;
 }
 
 .page.project_case div.content h2{
@@ -290,7 +297,7 @@ header h1{
     }
     header{
         background-color: #fff;
-        margin-bottom: 10px;
+        margin-bottom: 0;
         height: var(--header-bar-height);
         position: fixed;
     }
@@ -324,12 +331,12 @@ header h1{
         top: var(--header-bar-height);
         left: 0;
         right: 0;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        /*margin-top: 1rem;*/
+        margin: 2rem;
     }
 
 
-    .page.page.project_case h1:first-child{
+    main h1:first-child{
         display: none;
     }
 

@@ -12,22 +12,22 @@
         <!--<script type="module" src="script.js"></script>-->
 
         <style type="text/css">
-            .main-container{
-                max-width: 100%;
-                padding: 0 2rem;
+            .hide{
+                display: none !important;
             }
             .row{
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
                 grid-gap: 20px;
             }
             .col{
-                border: 1px solid #dbdada;
-                border-radius: 2px;
-                height: 11rem;
-                padding: 1rem;
-                background-color: #fff;
+                border: 1px solid #c0c0c0;
+                border-radius: 5px;
+                /* height: calc(100vh - 9rem); */
+                /*max-height: 30rem;*/
+                padding: 1rem 2rem;
+                background-color: rgb(255 255 255 / 93%);
                 display: flex;
                 flex-direction: column;
                 flex-wrap: nowrap;
@@ -35,7 +35,6 @@
                 justify-content: space-between;
                 align-items: flex-start;
             }
-
             .row .col > div.header{
                 display: flex;
                 flex-direction: row;
@@ -47,14 +46,17 @@
                 font-size: 1.1rem;
                 margin: 0;
                 overflow: hidden;
+                white-space: nowrap;
             }
             .row .col > div.header > .year_finish{
                 font-size: 0.9rem;
                 margin: 0;
             }
             .row .col > div.body{
-                height: 8rem;
                 overflow: hidden;
+                height: 100%;
+                width: 100%;
+                margin: 1rem 0;
             }
             .row .col > div.footer{
                 display: flex;
@@ -78,6 +80,19 @@
                 font-size: 0.8rem;
                 margin: 0;
             }
+
+            .row .col > div.body p{
+                margin: 0.5rem 0;
+            }
+            .list .col .body .logo{
+                text-align: center;
+            }
+            .list .col .body .logo>img{
+                max-height: 15vh;
+                max-width: 100%;
+                border-radius: 4px;
+                margin: 0.5rem 0 1rem 0;
+            }
         </style>
     </head>
     <body>
@@ -94,36 +109,37 @@
         var DATASET = [
             {
                 name: 'R1 Audio Visual'
+                , logoUrl: 'assets/logo/r1AudioVisual.png'
                 , info: '<p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>' +
                         '<p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>' +
                         '<p>Atualmente o foco da empresa é em oferecer todo o suporte operacional para a realização de eventos corporativos</p>'
                 , url: ''
                 , year_start: '2005'
                 , year_finish: ''
-            },
-            {
+            }
+            ,  {
+                name: 'Y. Takaoka Empreendimentos S.A'
+                , logoUrl: 'assets/logo/takaoka.png'
+                , info: ''
+                , url: ''
+                , year_start: '2002'
+                , year_finish: ''
+            }
+            ,   {
                 name: 'TES Cenografia'
-                , info: '<p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>' +
-                        '<p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>' +
-                        '<p>Atualmente o foco da empresa é em oferecer todo o suporte operacional para a realização de eventos corporativos</p>'
+                , logoUrl: 'assets/logo/tesCenografia.png'
+                , info: '<p>A TES Cenografia é uma empresa do Grupo R1 especializada em criar os mais diversos cenários para conferências, encontros, estandes e feiras, através da cenografia sustentável e da comunicação visual.</p>'
                 , url: ''
                 , year_start: ''
                 , year_finish: ''
             },
             {
                 name: '42 Labs'
-                , info: '<p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>' +
-                        '<p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>' +
-                        '<p>Atualmente o foco da empresa é em oferecer todo o suporte operacional para a realização de eventos corporativos</p>'
+                , logoUrl: 'assets/logo/42labs-2.png'
+                , info: '<p>A 42Labs é uma empresa de criatividade e tecnologia, especializada na construção de conteúdos e soluções tecnológicas:</p>' +
+                        '<p>Plataformas Virtuais para eventos, Virtual Set, Mapping, Apps para eventos, Realidade Aumentada, e muito mais.</p>'
                 , url: ''
                 , year_start: ''
-                , year_finish: ''
-            }
-            ,  {
-                name: 'Y. Takaoka Empreendimentos S.A'
-                , info: ''
-                , url: ''
-                , year_start: '2021'
                 , year_finish: ''
             }
             ,  {
@@ -435,6 +451,15 @@
                 DOM_item.append(DOM_body);
                 DOM_body.innerHTML = item.info;
 
+                if ((item.logoUrl!=undefined)&&(item.logoUrl!='')){
+                    let DOM_logo = document.createElement('div');
+                    DOM_logo.classList.add('logo');
+                    DOM_logo.innerHTML = '<img src="' + item.logoUrl + '">';
+                    DOM_body.prepend(DOM_logo);
+                    DOM_header.classList.add('hide')
+
+                }
+
                 let DOM_footer = document.createElement('div');
                 DOM_footer.classList.add('footer');
                 DOM_item.append(DOM_footer);
@@ -446,16 +471,21 @@
 
                 let year_finish;
                 if ( (item.year_finish=='')||(item.year_finish==undefined) ){
-                    year_finish = 'Since ' + item.year_start;
+                    if ( (item.year_start!=undefined) && (item.year_start!='') ){
+                        year_finish = 'Since ' + item.year_start;
+                    }
                 } else if ( (item.year_finish == item.year_start) ){
                     year_finish = item.year_finish;
                 } else {
                     year_finish = 'From ' + item.year_start + ' to ' + item.year_finish;
                 }
-                let DOM_year_finish = document.createElement('div');
-                DOM_year_finish.innerHTML = year_finish;
-                DOM_year_finish.classList.add('year_finish');
-                DOM_footer.append(DOM_year_finish);
+
+                if ((year_finish!=undefined)&&(year_finish!='')){
+                    let DOM_year_finish = document.createElement('div');
+                    DOM_year_finish.innerHTML = year_finish;
+                    DOM_year_finish.classList.add('year_finish');
+                    DOM_footer.append(DOM_year_finish);
+                }
 
 
                 if ( (item.url)&&(item.url!='') ){
