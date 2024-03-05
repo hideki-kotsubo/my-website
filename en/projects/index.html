@@ -88,6 +88,7 @@
         var DATA_PROJECTS = [
             {
                 name: 'Air Race X'
+                , client_id: 'pathfinder'
                 , info: 'Software para uma nova modalidade de corrida aérea'
                 , url: 'cases/air-race-x/'
                 , year_start: '2023'
@@ -95,6 +96,7 @@
             }
             ,  {
                 name: 'Clube Saúde'
+                , client_id: 'grupo-ana-rosa'
                 , info: 'Clube de fidelidade do setor de saúde'
                 , url: ''
                 , year_start: '2021'
@@ -102,6 +104,7 @@
             }
             ,  {
                 name: 'Portal ANTP'
+                , client_id: 'antp'
                 , info: 'Um portal de notícias, informações, eventos, ...'
                 , url: 'cases/antp-portal/'
                 , year_start: '2015'
@@ -109,6 +112,7 @@
             }
             ,  {
                 name: 'ERP R1 Audio Visual'
+                , client_id: 'r1-audiovisual'
                 , info: 'Sistema ERP customizado para a R1 AudioVisual'
                 , url: ''
                 , year_start: '2005'
@@ -116,6 +120,7 @@
             }
             ,  {
                 name: 'DooDoo'
+                , client_id: '5dot'
                 , info: 'App para game online do tipo Quiz, em real time'
                 , url: ''
                 , year_start: '2020'
@@ -123,6 +128,7 @@
             }
             ,  {
                 name: 'Diário do Transporte'
+                , client_id: 'diario-do-transporte'
                 , info: 'Portal de notícias com conteúdos exclusivo do segmento de transporte urbano'
                 , url: ''
                 , year_start: '2020'
@@ -237,8 +243,16 @@
 
             var currentYear = (new Date()).getFullYear();
 
-            for (var loopFor=0; loopFor<DATA_PROJECTS.length; loopFor++){
-                let item = DATA_PROJECTS[loopFor];
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            var DATA_PROJECTS_LIST = DATA_PROJECTS;
+            if (urlParams.has('client_id')){
+                const client_id = urlParams.get('client_id');
+                DATA_PROJECTS_LIST = DATA_PROJECTS_LIST.filter( element => element.client_id == client_id )
+            }
+
+            for (var loopFor=0; loopFor<DATA_PROJECTS_LIST.length; loopFor++){
+                let item = DATA_PROJECTS_LIST[loopFor];
 
                 let DOM_item = document.createElement('div');
                 DOM_list.append(DOM_item);

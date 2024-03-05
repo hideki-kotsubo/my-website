@@ -7,8 +7,7 @@
 
         <link rel="stylesheet" href="/en/styles.css?v=0.1" type="text/css">
         <script defer src="/en/dom.js?v=0.1"></script>
-        <script defer src="data.js"></script>
-        <script defer src="script.js"></script>
+        
         <!--<script type="module" src="script.js"></script>-->
 
         <style type="text/css">
@@ -109,6 +108,7 @@
         var DATASET = [
             {
                 name: 'R1 Audio Visual'
+                , client_id: 'r1-audiovisual'
                 , logoUrl: 'assets/logo/r1AudioVisual.png'
                 , info: '<p>A R1 Audio Visual é uma empresa do segmento de eventos corporativo que está no mercado desde 2005.</p>' +
                         '<p>A empresa iniciou sua operação com a prestação de serviços de locação de notebooks e projetores para o público geral.</p>' +
@@ -119,6 +119,7 @@
             }
             ,  {
                 name: 'Y. Takaoka Empreendimentos S.A.'
+                , client_id: 'takaoka'
                 , logoUrl: 'assets/logo/takaoka.png'
                 , info: 'A Y. Takaoka Empreendimentos S.A. foi idealizada pelo engenheiro Yojiro Takaoka, um dos fundadores da Construtora Albuquerque Takaoka, empresa que consolidou uma proposta empresarial diferenciada e se tornou uma das sete maiores do Brasil, sendo responsável por empreendimentos como Alphaville e Aldeia da Serra, na grande São Paulo - projetos que marcaram o conceito de condomínio horizontal de luxo no Brasil e que resultaram em um salto de qualidade no mercado imobiliário no país.'
                 , url: ''
@@ -127,6 +128,7 @@
             }
             ,   {
                 name: 'TES Cenografia'
+                , client_id: 'tes-cenografia'
                 , logoUrl: 'assets/logo/tesCenografia.png'
                 , info: '<p>A TES Cenografia é uma empresa do Grupo R1 especializada em criar os mais diversos cenários para conferências, encontros, estandes e feiras, através da cenografia sustentável e da comunicação visual.</p>'
                 , url: ''
@@ -135,6 +137,7 @@
             },
             {
                 name: '42 Labs'
+                , client_id: '42-labs'
                 , logoUrl: 'assets/logo/42labs-2.png'
                 , info: '<p>A 42Labs é uma empresa de criatividade e tecnologia, especializada na construção de conteúdos e soluções tecnológicas:</p>' +
                         '<p>Plataformas Virtuais para eventos, Virtual Set, Mapping, Apps para eventos, Realidade Aumentada, e muito mais.</p>'
@@ -144,6 +147,7 @@
             }
             ,  {
                 name: 'Residencial Gênesis'
+                , client_id: 'takaoka'
                 , logoUrl: 'assets/logo/residencial-Genesis.gif'
                 , info: '<p>O Residencial Gênesis é um projeto imobiliário inovador com a premissa de preservar o máximo possível de mata existente do total da área destinada ao novo empreendimento.</p>' +
                     '<p>É uma empresa do Grupo Takaoka</p>'
@@ -153,6 +157,7 @@
             }
             ,  {
                 name: 'Grupo Ana Rosa'
+                , client_id: 'grupo_ana_rosa'
                 , info: ''
                 , url: ''
                 , year_start: ''
@@ -160,6 +165,7 @@
             }
             ,  {
                 name: 'Gênesis Empreendimentos Imobiliário'
+                , client_id: 'takaoka'
                 , info: ''
                 , url: ''
                 , year_start: ''
@@ -167,6 +173,7 @@
             }
             ,  {
                 name: 'Diário do Transporte'
+                , client_id: 'diario-do-transporte'
                 , info: ''
                 , url: ''
                 , year_start: ''
@@ -174,6 +181,7 @@
             }
             ,  {
                 name: 'Pathfinder'
+                , client_id: 'pathfinder'
                 , logoUrl: 'assets/logo/pathfinder.png'
                 , info: '<p>Pathfinder é a empresa do piloto aerobático e campeão da Red Bull Air Race, Yoshi Muroya</p>' +
                     '<p>Website: <a href="https://path-finder.co.jp/" target="_blank">path-finder.co.jp</a></p>' +
@@ -184,6 +192,7 @@
             }
             ,  {
                 name: 'NIVEA'
+                , client_id: 'nivea'
                 , info: ''
                 , url: ''
                 , year_start: '2021'
@@ -493,13 +502,13 @@
                 }
 
 
-                //if ( (item.url)&&(item.url!='') ){
+                if ( (item.client_id)&&(item.client_id!='') ){
                     let DOM_footer_button = document.createElement('a');
                     DOM_footer_button.innerHTML = 'Veja os projetos';
                     DOM_footer_button.classList.add('button');
-                    DOM_footer_button.setAttribute('href',item.url);
+                    DOM_footer_button.setAttribute('href','../projects/?client_id=' + item.client_id);
                     DOM_footer.append(DOM_footer_button);
-                //}
+                }
             }
         }
 

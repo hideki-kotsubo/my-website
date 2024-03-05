@@ -28,7 +28,7 @@ var domModule = function(){
         DOM.body = document.querySelector('body');
 
         loadClients();
-        console.log('aaaa')
+        //console.log('aaaa')
     }
 
     return{
