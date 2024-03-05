@@ -1,8 +1,10 @@
 :root{
-    
     --background-color: #fcfaf4;
     --main-bg-color: #fe634d;
     --header-bar-height: 50px;
+    --container-bgcolor: rgb(255 255 255 / 93%);
+    --container-border: 0; /*1px solid #c0c0c0;*/
+    --container-border-radius: 10px;
 }
 
 html{
@@ -104,6 +106,7 @@ footer{
     z-index: 10;
     min-height: 100px;
     background-color: #4b5a68;
+    display: none;
 }
 
 
@@ -235,20 +238,23 @@ header h1{
     display: none;
 }
 
+main > h1:first-child{
+    display: none;
+}
 
 
 .container{
-    /*border: 1px solid #dbdada;*/
-    border-radius: 8px;
+    border: var(--container-border);
+    border-radius: var(--container-border-radius);
     padding: 1rem;
-    background-color: #ffffffdb;
+    background-color: var(--container-bgcolor);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: flex-start;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 1rem;
+    margin: 0;
 }
 
 
@@ -261,10 +267,10 @@ header h1{
     */
 }
 .page.project_case div.content{
-
-    background-color: rgb(255 255 255 / 93%);
+    border: var(--container-border);
+    border-radius: var(--container-border-radius);
+    background-color: var(--container-bgcolor);
     padding: 1rem;
-    border-radius: 9px;
     margin: 1rem 0;
     text-align: left;
 }
@@ -342,9 +348,6 @@ header h1{
     }
 
 
-    main > h1:first-child{
-        display: none;
-    }
 
     .page.project_case .contentInfoBox{
         display: flex;

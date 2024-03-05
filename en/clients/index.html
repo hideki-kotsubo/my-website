@@ -22,12 +22,12 @@
                 grid-gap: 20px;
             }
             .col{
-                /*border: 1px solid #c0c0c0;*/
-                border-radius: 5px;
+                border: var(--container-border);
+                border-radius: var(--container-border-radius);
                 /* height: calc(100vh - 9rem); */
                 /*max-height: 30rem;*/
                 padding: 1rem 2rem;
-                background-color: rgb(255 255 255 / 93%);
+                background-color: var(--container-bgcolor);
                 display: flex;
                 flex-direction: column;
                 flex-wrap: nowrap;
@@ -70,7 +70,7 @@
                 text-decoration: none;
                 background-color: #ffde7f;
                 padding: 0.2rem 0.5rem;
-                border-radius: 4px;
+                border-radius: 5px;
             }
             .row .col > div.footer > .year_start{
                 font-size: 1.1rem;
@@ -90,7 +90,7 @@
             .list .col .body .logo>img{
                 max-height: 15vh;
                 max-width: 100%;
-                border-radius: 4px;
+                border-radius: var(--container-border-radius);
                 margin: 0.5rem 0 1rem 0;
             }
         </style>
@@ -118,12 +118,12 @@
                 , year_finish: ''
             }
             ,  {
-                name: 'Y. Takaoka Empreendimentos S.A'
+                name: 'Y. Takaoka Empreendimentos S.A.'
                 , logoUrl: 'assets/logo/takaoka.png'
-                , info: ''
+                , info: 'A Y. Takaoka Empreendimentos S.A. foi idealizada pelo engenheiro Yojiro Takaoka, um dos fundadores da Construtora Albuquerque Takaoka, empresa que consolidou uma proposta empresarial diferenciada e se tornou uma das sete maiores do Brasil, sendo responsável por empreendimentos como Alphaville e Aldeia da Serra, na grande São Paulo - projetos que marcaram o conceito de condomínio horizontal de luxo no Brasil e que resultaram em um salto de qualidade no mercado imobiliário no país.'
                 , url: ''
                 , year_start: '2002'
-                , year_finish: ''
+                , year_finish: '2019'
             }
             ,   {
                 name: 'TES Cenografia'
@@ -143,8 +143,10 @@
                 , year_finish: ''
             }
             ,  {
-                name: 'Takaoka S.A'
-                , info: ''
+                name: 'Residencial Gênesis'
+                , logoUrl: 'assets/logo/residencial-Genesis.gif'
+                , info: '<p>O Residencial Gênesis é um projeto imobiliário inovador com a premissa de preservar o máximo possível de mata existente do total da área destinada ao novo empreendimento.</p>' +
+                    '<p>É uma empresa do Grupo Takaoka</p>'
                 , url: ''
                 , year_start: ''
                 , year_finish: ''
@@ -172,7 +174,10 @@
             }
             ,  {
                 name: 'Pathfinder'
-                , info: ''
+                , logoUrl: 'assets/logo/pathfinder.png'
+                , info: '<p>Pathfinder é a empresa do piloto aerobático e campeão da Red Bull Air Race, Yoshi Muroya</p>' +
+                    '<p>Website: <a href="https://path-finder.co.jp/" target="_blank">path-finder.co.jp</a></p>' +
+                    '<p>Website: <a href="https://yoshi-muroya.jp/" target="_blank">yoshi-muroya.jp</a></p>'
                 , url: ''
                 , year_start: '2023'
                 , year_finish: ''
@@ -488,13 +493,13 @@
                 }
 
 
-                if ( (item.url)&&(item.url!='') ){
+                //if ( (item.url)&&(item.url!='') ){
                     let DOM_footer_button = document.createElement('a');
-                    DOM_footer_button.innerHTML = 'Saiba mais';
+                    DOM_footer_button.innerHTML = 'Veja os projetos';
                     DOM_footer_button.classList.add('button');
                     DOM_footer_button.setAttribute('href',item.url);
                     DOM_footer.append(DOM_footer_button);
-                }
+                //}
             }
         }
 

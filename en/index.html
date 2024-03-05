@@ -140,7 +140,8 @@
                 text-align: center;
                 padding: 0;
                 position: relative;
-                margin: 1rem 1rem;
+                /* margin: 1rem 1rem; */
+                margin: 0;
             }
 
 
@@ -171,9 +172,9 @@
                 left: 0;
                 bottom: 0;
                 z-index: 1;
-                /*border: 1px solid #dbdada;*/
-                border-radius: 8px;
-                background-color: #ffffffdb;
+                border: var(--container-border);
+                border-radius: var(--container-border-radius);
+                background-color: var(--container-bgcolor);
             }
 
             div.cardContainer{
