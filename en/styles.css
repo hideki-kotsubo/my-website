@@ -5,6 +5,7 @@
     --container-bgcolor: rgb(255 255 255 / 93%);
     --container-border: 0; /*1px solid #c0c0c0;*/
     --container-border-radius: 10px;
+    --font-color-h: #fc470e;
 }
 
 html{
@@ -38,6 +39,7 @@ h2{
     font-size: 1.4rem;
     margin: 0;
     margin-top: 0.4rem;
+    color: var(--font-color-h);
 }
 p {
     margin: 0.5rem 0 0 0rem;
@@ -359,4 +361,24 @@ main > h1:first-child{
     .page.project_case img{
         width: 100% !important;
     }
+}
+
+
+.boxPanel{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+.boxPanel .title{
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+.boxPanel .number{
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    color: var(--font-color-h);
 }
