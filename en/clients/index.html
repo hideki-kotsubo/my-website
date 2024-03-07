@@ -92,6 +92,13 @@
                 border-radius: var(--container-border-radius);
                 margin: 0.5rem 0 1rem 0;
             }
+
+
+            @media only screen and (min-width: 600px) {
+                .row {
+                    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                }
+            }
         </style>
     </head>
     <body>
@@ -214,20 +221,23 @@
             }
             ,  {
                 name: 'EccoSafety'
-                , info: ''
+                , logoUrl: 'assets/logo/eccosafety.webp'
+                , info: 'A Ecco Safety é uma empresa de consultoria e desenvolvimento de sistemas, especializada nas áreas: Ambiental, Saúde e Segurança Ocupacional, e Responsabilidade Social'
                 , url: ''
                 , year_start: ''
                 , year_finish: ''
             }
             ,  {
                 name: 'CEMA'
-                , info: ''
+                , logoUrl: 'assets/logo/cema.webp'
+                , info: 'A Cema Consultoria e Estudos Ambientais é uma empresa especializada em estudos do meio ambiente, desenvolvendo projetos e pesquisas relacionadas ao tema'
                 , url: ''
                 , year_start: ''
                 , year_finish: ''
             }
             ,  {
                 name: 'Revista CULT'
+                , logoUrl: 'assets/logo/revista-cult.webp'
                 , info: ''
                 , url: ''
                 , year_start: ''
@@ -235,6 +245,7 @@
             }
             ,  {
                 name: 'Trapézio'
+                , logoUrl: 'assets/logo/grupo-trapezio.webp'
                 , info: 'É uma associação sem fins lucrativos que, desde 1995, desenvolve ações de apoio à escolarização beneficiando alunos, pais e educadores. '
                 , url: ''
                 , year_start: ''
@@ -249,7 +260,8 @@
             }
             ,  {
                 name: 'Barilla'
-                , info: 'Um espaço para eventos, nascido do sonho de construir um dos mais belos buffets para a cidade de São Paulo.'
+                , logoUrl: 'assets/logo/barilla.png'
+                , info: 'Barilla é uma empresa multinacional do setor alimentício famosa pelo seus produtos, massas, pastas e molhos'
                 , url: ''
                 , year_start: ''
                 , year_finish: ''
@@ -396,6 +408,7 @@
             }
             ,  {
                 name: 'SmartCara'
+                , logoUrl: 'assets/logo/smartcara.png'
                 , info: ''
                 , url: ''
                 , year_start: ''
