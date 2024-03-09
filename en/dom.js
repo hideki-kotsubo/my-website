@@ -14,11 +14,11 @@ var myDom = function(){
     var URLBASE = '/en';
     var header_nav_options = [
         {   name: 'Home', url: URLBASE + '/' }
-        , {   name: 'Clients', url: URLBASE + '/clients/' }
+        , {   name: 'Services Offering', url: URLBASE + '/services-offering/' }
         , {   name: 'Projects', url: URLBASE + '/projects/' }
+        , {   name: 'Clients', url: URLBASE + '/clients/' }
         , {   name: 'Things I\'m good at', url: URLBASE + '/things-im-good-at/' }
         , {   name: 'Skills & Tools', url: URLBASE + '/skills-and-tools/' }
-        , {   name: 'Services Offering', url: URLBASE + '/services-offering/' }
         , {   name: 'Contact Me', url: URLBASE + '/contact-me/' }
         , {   name: 'About me', url: URLBASE + '/about-me/' }
     ]
@@ -26,11 +26,11 @@ var myDom = function(){
 
     var footer_nav_options = [
         {   name: 'Home', url: URLBASE + '/' }
-        , {   name: 'Clients', url: URLBASE + '/clients/' }
+        , {   name: 'Services Offering', url: URLBASE + '/services-offering/' }
         , {   name: 'Projects', url: URLBASE + '/projects' }
+        , {   name: 'Clients', url: URLBASE + '/clients/' }
         , {   name: 'Things I\'m good at', url: URLBASE + '/things-im-good-at/' }
         , {   name: 'Skills & Tools', url: URLBASE + '/skills-and-tools/' }
-        , {   name: 'Services Offering', url: URLBASE + '/services-offering/' }
         , {   name: 'Contact Me', url: URLBASE + '/contact-me/' }
         , {   name: 'About me', url: URLBASE + '/about-me/' }
     ]

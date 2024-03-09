@@ -11,14 +11,14 @@
         <style type="text/css">
             .row{
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
                 grid-gap: 20px;
             }
             .col{
                 border: var(--container-border);
                 border-radius: var(--container-border-radius);
-                height: 7rem;
+                height: 10rem;
                 padding: 1rem;
                 background-color: var(--container-bgcolor);
                 display: flex;
@@ -46,7 +46,7 @@
                 margin: 0;
             }
             .row .col > div.body{
-                height: 3rem;
+                height: 7rem;
                 overflow: hidden;
             }
             .row .col > div.footer{
@@ -77,7 +77,7 @@
     </head>
     <body>
         <main class="main-container">
-            <h1>My Projects</h1>
+            <h1>Projects</h1>
             <div class="list">
             </div>
         </main>
@@ -86,7 +86,112 @@
 
     <script>
         var DATA_PROJECTS = [
+        
+        {
+                name: 'Software de Gestão'
+                , client_id: 'eccosafety'
+                , info: '<p>Construímos o sistema de Gerenciamento de Normas Técnicas Ambientais na qual a contratante gerenciava prazos de requisitos para seus clientes</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2005'
+            }
+            ,
             {
+                name: 'Website Institucional'
+                , client_id: 'eccosafety'
+                , info: '<p>Criação do website corporativo da empresa, com uso de tecnologias HTML, CSS, JS</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2005'
+            }
+            , 
+            {
+                name: 'Credenciamento e Check-in'
+                , client_id: 'midia-grupo'
+                , info: '<p>Sistema para Credenciamento e Administração de Participantes</p><p>Construímos um software para credenciamento de visitantes para eventos como feiras comerciais, nas quais o visitante poderia se credenciar on-line e posteriormente, nas datas do evento o</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2004'
+            }
+            , {
+                name: 'Site Revista CULT'
+                , client_id: 'editora-bregantini'
+                , info: '<p>Manutenção do website da Revista CULT</p><p>Construída na plataforma Wordpress, nosso trabalho foi realizar manutenções no projeto conforme a demanda do cliente</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2004'
+            }
+            , {
+                name: 'Site Gênesis 1 - Módulo documentos'
+                , client_id: 'residencial-genesis-1'
+                , info: '<p>Desenvolvimento de módulo para publicação de documentos no website do residencial</p>' +
+                    '<p>O projeto foi construído com tecnologias HTML, Javascript, CSS, Flash</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2004'
+            }
+            , {
+                name: 'Site Y.Takaoka'
+                , client_id: 'ytakaoka'
+                , info: 'Construção do website institucional da Y.Takaoka'
+                , url: ''
+                , year_start: '2003'
+                , year_finish: '2003'
+            }
+            , {
+                name: 'Site Y.Takaoka - Manutenção'
+                , client_id: 'ytakaoka'
+                , info: 'Manutenção de conteúdos do website institucional da Y.Takaoka'
+                , url: ''
+                , year_start: '2003'
+                , year_finish: '2004'
+            }
+            , {
+                name: 'Site Gênesis 1'
+                , client_id: 'residencial-genesis-1'
+                , info: '<p>Construção do website institucional do Residencial Gênesis 1</p>' +
+                    '<p>O projeto foi construído com tecnologias HTML, Javascript, CSS, Flash</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2004'
+            }
+            ,  {
+                name: 'CEMA Legal'
+                , client_id: 'cema'
+                , info: 'Manutenção do sistema CEMA Legal<p>Projeto construído com tecnologia Microsoft Visual Basic e banco de dados Microsoft Access</p>'
+                , url: ''
+                , year_start: '2003'
+                , year_finish: '2004'
+            }
+            ,  {
+                name: 'CEMA Legal - Arquitetura'
+                , client_id: 'cema'
+                , info: '<p>Projeto de Reestruturação da base de dados do sistema</p><p>Planejamos um novo modelo de dados e executamos sua implementação, assim como a migração dos dados existentes</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2004'
+            }
+            
+            
+            
+            
+            , {
+                name: 'Site Revista Takinha'
+                , client_id: 'ytakaoka'
+                , info: 'Construímos o website da Revista Takinha com uso da tecnologia Flash para simular uma navegação '
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2013'
+            }
+            , {
+                name: 'Site Nutrilite'
+                , client_id: 'amway'
+                , info: 'Construímos o website institucional da Nutrilite, uma linha de produtos da multinacional Amway'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2013'
+            }
+            , {
                 name: 'Air Race X'
                 , client_id: 'pathfinder'
                 , info: 'Software para uma nova modalidade de corrida aérea'
@@ -210,20 +315,6 @@
                 , url: ''
                 , year_start: '2021'
                 , year_finish: '2022'
-            }
-            ,  {
-                name: 'EccoSafety'
-                , info: ''
-                , url: ''
-                , year_start: '2015'
-                , year_finish: ''
-            }
-            ,  {
-                name: 'CEMA'
-                , info: ''
-                , url: ''
-                , year_start: '2004'
-                , year_finish: '2009'
             }
             ,  {
                 name: 'Mailboy'
