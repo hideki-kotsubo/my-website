@@ -117,12 +117,14 @@
             {
                 name: 'CBCS'
                 , client_id: 'cbcs'
-                , logoUrl: ''
+                , logoUrl: 'assets/logo/cbcs.webp'
                 , info: 'O Conselho Brasileiro de Construção Sustentável Organização da Sociedade Civil de Interesse Público, de âmbito nacional, criada em agosto de 2007 como resultado da articulação entre lideranças empresariais, pesquisadores, consultores, profissionais atuantes e formadores de opinião.'
                 , url: ''
                 , year_start: '2010'
                 , year_finish: ''
             }
+
+            
             , {
                 name: 'Manesco'
                 , client_id: 'manesco'
@@ -138,7 +140,7 @@
                 , logoUrl: 'assets/logo/ponto-link.webp'
                 , info: 'Ponto Link é uma empresa que atua na área de eventos corporativos com fornecimento de equipamentos de ponta para Tradução Simultânea, Transmissão de Áudio (Palestra Silenciosa), Audiodescrição, e Audiovisual (Sonorização e Projeção).'
                 , url: ''
-                , year_start: '2008'
+                , year_start: '2009'
                 , year_finish: ''
             }
             ,  {
@@ -228,6 +230,7 @@
             , {
                 name: 'Rosa Rosarum'
                 , client_id: 'rosa-rosarum'
+                , logoUrl: 'assets/logo/rosa-rosarum.webp'
                 , info: 'Um espaço para eventos, nascido do sonho de construir um dos mais belos buffets para a cidade de São Paulo.'
                 , url: ''
                 , year_start: '2006'
@@ -267,7 +270,7 @@
                 , info: 'A JCR Construção Civil é uma empresa do setor de construção civil'
                 , url: ''
                 , year_start: '2005'
-                , year_finish: ''
+                , year_finish: '2007'
             }
             , 
             {
@@ -283,7 +286,7 @@
             {
                 name: 'Invensys Appliance Controls Ltda'
                 , client_id: 'invensys'
-                , logoUrl: 'assets/logo/invensys.webp'
+                , logoUrl: ''
                 , info: 'A Invensys Appliance Controls Ltda é uma empresa do setor'
                 , url: ''
                 , year_start: '2005'
@@ -327,6 +330,24 @@
                 , year_finish: '2019'
             }
             ,  {
+                name: 'Tioda Arquitetura'
+                , client_id: 'tioda-arquitetura'
+                , logoUrl: 'assets/logo/tioda-arquitetura.webp'
+                , info: 'A Tioda é uma empresa de arquitetura e Engenharia com foco em construção residencial.'
+                , url: ''
+                , year_start: '2003'
+                , year_finish: '2003'
+            }
+            ,  {
+                name: 'Irineu Toledo'
+                , client_id: 'irineu-toledo'
+                , logoUrl: ''
+                , info: 'Irineu Toledo é jornalista e radialista, com passagem em vários veículos de comunicação de São Paulo.'
+                , url: ''
+                , year_start: '2002'
+                , year_finish: '2003'
+            }
+            ,  {
                 name: 'CEMA'
                 , client_id: 'cema'
                 , logoUrl: 'assets/logo/cema.webp'
@@ -362,6 +383,30 @@
                 , year_start: '2004'
                 , year_finish: '2004'
             }
+
+
+
+
+            , {
+                name: 'Leardi Imóveis'
+                , client_id: 'leardi-imoveis'
+                , logoUrl: 'assets/logo/leardi-imoveis.webp'
+                , info: 'A Paulo Roberto Leardi Imóveis é uma conceituada imobiliária de São Paulo.'
+                , url: ''
+                , year_start: '2002'
+                , year_finish: '2004'
+            }
+            , {
+                name: 'Mailboy'
+                , client_id: ''
+                , logoUrl: 'assets/logo/mailboy.webp'
+                , info: 'Mailboy é um projeto pessoal criado para suprir a demanda de envio de e-mail marketing para meus clientes na ocasião, que acabou se tornando uma empresa à parte'
+                , url: ''
+                , year_start: '2002'
+                , year_finish: '2020'
+            }
+
+
             
 
             , {
@@ -390,16 +435,6 @@
                 , logoUrl: 'assets/logo/42labs-2.png'
                 , info: '<p>A 42Labs é uma empresa de criatividade e tecnologia, especializada na construção de conteúdos e soluções tecnológicas:</p>' +
                         '<p>Plataformas Virtuais para eventos, Virtual Set, Mapping, Apps para eventos, Realidade Aumentada, e muito mais.</p>'
-                , url: ''
-                , year_start: ''
-                , year_finish: ''
-            }
-            ,  {
-                name: 'Residencial Gênesis'
-                , client_id: 'takaoka'
-                , logoUrl: 'assets/logo/residencial-Genesis.gif'
-                , info: '<p>O Residencial Gênesis é um projeto imobiliário inovador com a premissa de preservar o máximo possível de mata existente do total da área destinada ao novo empreendimento.</p>' +
-                    '<p>É uma empresa do Grupo Takaoka</p>'
                 , url: ''
                 , year_start: ''
                 , year_finish: ''
@@ -659,7 +694,7 @@
                     DOM_logo.classList.add('logo');
                     DOM_logo.innerHTML = '<img src="' + item.logoUrl + '">';
                     DOM_body.prepend(DOM_logo);
-                    DOM_header.classList.add('hide')
+                    //DOM_header.classList.add('hide')
 
                 }
 
