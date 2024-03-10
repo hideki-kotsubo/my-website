@@ -18,7 +18,7 @@
             .col{
                 border: var(--container-border);
                 border-radius: var(--container-border-radius);
-                height: 10rem;
+                height: 11rem;
                 padding: 1rem;
                 background-color: var(--container-bgcolor);
                 display: flex;
@@ -30,9 +30,10 @@
             }
 
             .row .col > div.header{
-                display: flex;
+                /*display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
+                */
                 justify-content: space-between;
                 width: 100%;
             }
@@ -41,12 +42,19 @@
                 margin: 0;
                 overflow: hidden;
             }
-            .row .col > div.header > .year_finish{
-                font-size: 1.1rem;
-                margin: 0;
+            .row .col > div.header > .client_name{
+                /*display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                */
+                justify-content: space-between;
+                width: 100%;
+                font-size: 0.8rem;
+                font-weight: 600;
             }
+            
             .row .col > div.body{
-                height: 7rem;
+                height: 9rem;
                 overflow: hidden;
             }
             .row .col > div.footer{
@@ -64,12 +72,13 @@
                 border-radius: 5px;
             }
             .row .col > div.footer > .year_start{
-                font-size: 1.1rem;
+                font-size: 0.6rem;
                 margin: 0;
             }
             .row .col > div.footer > .year_finish{
-                font-size: 1.1rem;
+                font-size: 0.6rem;
                 margin: 0;
+                font-weight: 600;
             }
         </style>
 
@@ -86,11 +95,518 @@
 
     <script>
         var DATA_PROJECTS = [
-        
-        {
+            {
+                name: 'Sistema de Credenciamento - Loja Virtual'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Upgrade do sistema de credenciamento com construção de Loja Virtual para comercialização de novos serviços</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2011'
+            }, {
+                name: 'Ação Parceria Campeã'
+                , client_id: 'rcunha'
+                , client_name: 'Grupo R.Cunha'
+                , info: '<p>Desenvolvimento  e construção do site da ação promocional Parceria Campeã gerenciado pela R.Cunha</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }, {
+                name: 'Site Institucional'
+                , client_id: 'cbcs'
+                , client_name: 'CBCS'
+                , info: '<p>Desenvolvimento e Construção do portal do CBCS com ferramentas de gestão de conteúdos</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }
+            , {
+                name: 'Pesquisa de Satisfação - Upgrade'
+                , client_id: 'invensys'
+                , client_name: 'Invensys Appliance Controls Ltda'
+                , info: '<p>Manutenção do sistema de pesquisa de satisfação com upgrade visual</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }, {
+                name: 'Sistema Qualidade - Upgrade'
+                , client_id: 'invensys'
+                , client_name: 'Invensys Appliance Controls Ltda'
+                , info: '<p>Upgrade do sistema de Qualidade com adição de novas funcionalidades</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }
+            , {
+                name: 'Site Rosa Rosarum'
+                , client_id: 'rosa-rosarum'
+                , client_name: 'Rosa Rosarum'
+                , info: '<p>Manunteção do website institucional</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }
+            , {
+                name: 'Holerite On-line'
+                , client_id: 'rcunha'
+                , client_name: 'Grupo R.Cunha'
+                , info: '<p>Desenvolvimento  e construção do sistema Holerite On-line para auxílio na emissão de comprovantes para empregados temporários da RCunha</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }, {
+                name: 'Site Institucional'
+                , client_id: 'manesco'
+                , client_name: 'Manesco'
+                , info: '<p>Desenvolvimento do website institucional da contratante</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }, {
+                name: 'Bradesco Merchandising'
+                , client_id: 'rcunha'
+                , client_name: 'Grupo R.Cunha'
+                , info: '<p>Desenvolvimento do sistema Bradesco Merchandising para operação pelo Grupo R.Cunha</p>'
+                , url: ''
+                , year_start: '2010'
+                , year_finish: '2010'
+            }, {
+                name: 'Sistema de Credenciamento - Dados'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Atividades de tratamento de dados e importação</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Sistema de Credenciamento - Upgrade'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Manutenção do sistema de Credenciamento com upgrades nos mecanismos de pagamentos on-line</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Sistema de Credenciamento - Upgrade'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Manutenção do sistema de Credenciamento com customização de funcionalidades</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Tratamento de Dados - CONLIDE'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Tratamento de dados para evento CONLIDE</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Software de Gestão - Upgrades'
+                , client_id: 'eccosafety'
+                , client_name: 'EccoSafety'
+                , info: '<p>Upgades do software de gerenciamento de Cumprimento de Normas Técnicas Ambientais</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2010'
+            }
+            , {
+                name: 'Site Corporativo'
+                , client_id: 'ponto-link'
+                , client_name: 'Ponto Link'
+                , info: '<p>Desenvolvimento do website Institucional da PontoLink com ferramentas de gestão de conteúdos</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2010'
+            }
+            , {
+                name: 'Site Institucional'
+                , client_id: 'dinamica'
+                , client_name: 'Dinâmica'
+                , info: '<p>Desenvolvimento do website Institucional da Dinâmica</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Customização CONLIDE'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Customização do sistema de credenciamento para evento CONLIDE</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Site Institucional - Renovação'
+                , client_id: 'genesis-empreendimentos-sa'
+                , client_name: 'Gênesis Empreendimentos S.A.'
+                , info: '<p>Renovação do website Institucional do Empreendimento Imobiliário Gênesis 1 e Gênesis 2</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'CEMA Legal - Manuteções'
+                , client_id: 'cema'
+                , client_name: 'CEMA'
+                , info: '<p>Manutenções de funcionalidades no sistema CEMA Legal</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2010'
+            }
+            , {
+                name: 'Tratamento de dados'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Serviços de tratamento, manipulação e importação de dados para evento Interdidática-Brasília</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Sistema Book Seara'
+                , client_id: 'rcunha'
+                , client_name: 'Grupo R.Cunha'
+                , info: '<p>Desenvolvimento do sistema Book Seara para operação pelo Grupo R.Cunha</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Pagamento on-line Visanet'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Upgrade do sistema de credenciamento on-line com adição de módulo de pagamento on-line Visanet</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Upgrade ficha de credenciamento'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Upgrade da ficha de credenciamento com mecanismo para multi-opções de credenciamento. Ação específica para evento Interdidática</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Pagamento on-line Bradesco'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Upgrade do sistema de credenciamento on-line com adição de módulo de pagamento on-line Bradesco</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Manutenção - SOS Sundown'
+                , client_id: 'rcunha'
+                , client_name: 'Grupo R.Cunha'
+                , info: '<p>Atividades diversas para manutenção do website para a campanha promocional SOS Sundown, operada pelo Grupo R.Cunha</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Manutenção de Site'
+                , client_id: 'prodelphus'
+                , client_name: 'Pro Delphus'
+                , info: '<p>Atividades diversas para manutenção de website institucional</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Site ação SOS Sundown'
+                , client_id: 'rcunha'
+                , client_name: 'Grupo R.Cunha'
+                , info: '<p>Desenvolvimento do website para a campanha promocional SOS Sundown, operada pelo Grupo R.Cunha</p>'
+                , url: ''
+                , year_start: '2009'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Site Rosa Rosarum'
+                , client_id: 'rosa-rosarum'
+                , client_name: 'Rosa Rosarum'
+                , info: '<p>Desenvolvimento e construção do website institucional com sistema de gerenciamento de conteúdos personalizado</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Site Corporativo'
+                , client_id: 'metrics'
+                , client_name: 'Metrics'
+                , info: '<p>Renovação do website institucional com sistema de gerenciamento de conteúdos personalizado</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2008'
+            }
+            , {
+                name: 'Site Institucional'
+                , client_id: 'trapezio'
+                , client_name: 'Trapézio'
+                , info: '<p>Criação do Site do instituto com ferramenta de gestão de conteúdos customizada de acordo com a necessidade da contratante</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2008'
+            }
+            , {
+                name: 'Software para atendimento de chamados'
+                , client_id: 'expo-taxi'
+                , client_name: 'Expo-Táxi'
+                , info: '<p>Desenvolvimento e implantação de software para apoio no processo operacional de solicitações de táxi</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2008'
+            }
+            , {
+                name: 'Gestão de currículos'
+                , client_id: 'rcunha'
+                , client_name: 'Grupo R.Cunha'
+                , info: '<p>Desenvolvimento e Construção de software on-line para gestão de currículos</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2008'
+            }
+            , {
+                name: 'Plano de Ação Corretiva - Upgrade'
+                , client_id: 'invensys'
+                , client_name: 'Invensys Appliance Controls Ltda'
+                , info: '<p>Upgrade do sistema de Ações Corretivas com adição de novas funcionalidades</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2008'
+            }
+            , {
+                name: 'Site ClubModa'
+                , client_id: 'ibmoda'
+                , client_name: 'IBModa'
+                , info: '<p>Criação do site ClubModa com ferramenta de gestão de conteúdos customizada de acordo com a necessidade da contratante</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2008'
+            }
+            , {
+                name: 'Site Subaru'
+                , client_id: 'dapevel'
+                , client_name: 'Dapevel'
+                , info: '<p>Criação do website da marca Subaru para a empresa Dapevel</p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2008'
+            }
+            , {
+                name: 'Gestão de Documentações'
+                , client_id: 'densitel'
+                , client_name: 'Densitel'
+                , info: '<p>Projeto de planejamento e desenvolvimento de software para apoio à catalogação e gestão de documentos e informações </p>'
+                , url: ''
+                , year_start: '2008'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Site Institucional'
+                , client_id: 'cia-da-informacao'
+                , client_name: 'Cia da informação'
+                , info: '<p>Criação do website institucional, com uso de recursos HTML, CSS, Javascript</p>'
+                , url: ''
+                , year_start: '2007'
+                , year_finish: '2007'
+            }
+            , {
+                name: 'Site Institucional'
+                , client_id: 'quanta'
+                , client_name: 'Quanta'
+                , info: '<p>Criação do website corporativo da Quanta, com uso de recursos HTML, CSS, Javascript</p>'
+                , url: ''
+                , year_start: '2007'
+                , year_finish: '2007'
+            }
+            , {
+                name: 'Site Institucional'
+                , client_id: 'dapevel'
+                , client_name: 'Dapevel'
+                , info: '<p>Criação do website Corporativo da Dapevel, com uso de recursos HTML, CSS, Javascript</p>'
+                , url: ''
+                , year_start: '2007'
+                , year_finish: '2007'
+            }
+            , {
+                name: 'Site Revista CULT - Upgrades'
+                , client_id: 'editora-bregantini'
+                , client_name: 'Editora Bregantini'
+                , info: '<p>Otimizações de códigos e modificações no website da Revista CULT com destaque para o Espaço CULT</p>'
+                , url: ''
+                , year_start: '2007'
+                , year_finish: '2007'
+            }
+            , {
+                name: 'Plano de Ação Corretiva'
+                , client_id: 'invensys'
+                , client_name: 'Invensys Appliance Controls Ltda'
+                , info: '<p>Desenvolvimento e construção de software para gestão de Ações Corretivas</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'CEMA Legal - Upgrade'
+                , client_id: 'cema'
+                , client_name: 'CEMA'
+                , info: '<p>Projeto de upgrade de funcionalidades no sistema CEMA Legal</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2007'
+            }
+            , {
+                name: 'Site Corporativo'
+                , client_id: 'metrics'
+                , client_name: 'Metrics'
+                , info: '<p>Criação do website corporativo com sistema de gerenciamento de conteúdos personalizado</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'Pesquisa de Satisfação - Melhorias'
+                , client_id: 'invensys'
+                , client_name: 'Invensys Appliance Controls Ltda'
+                , info: '<p>Manutenção do sistema de pesquisa de satisfação com adição de melhorias no questionário</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'E-mail Marketing'
+                , client_id: 'rosa-rosarum'
+                , client_name: 'Rosa Rosarum'
+                , info: '<p>Criação de e-mail marketing para a Rosa Rosarum</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'Biblioteca'
+                , client_id: 'juan-uribe'
+                , client_name: 'Juan Uribe'
+                , info: '<p>Construímos o software de gerenciamento para a biblioteca da escola, com funcionalidade de catalogamento e gestão de empréstimos</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'Site Revista CULT'
+                , client_id: 'editora-bregantini'
+                , client_name: 'Editora Bregantini'
+                , info: '<p>Criação do website da Revista CULT com sistema de gerenciamento de conteúdos personalizado conforme o projeto do portal</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'Minha Agenda'
+                , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
+                , info: '<p>Desenvolvimento e construção do software on-line Minha Agenda</p>'
+                , url: ''
+                , year_start: '2006'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'Site Institucional'
+                , client_id: 'nutrifoods'
+                , client_name: 'Nutrifoods'
+                , info: '<p>Criação de website institucional para a empresa, com divulgação de seus produtos e canais de contato</p>'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: '2005'
+            }
+            , {
+                name: 'Provisionamento On-line'
+                , client_id: 'inteliredes'
+                , client_name: 'InteliRedes Ltda.'
+                , info: '<p>Construímos um sistema on-line para Provisionamento de números de cadastros para seus clientes</p>'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: '2006'
+            }
+            , {
+                name: 'Controle Financeiro'
+                , client_id: 'jcr-construcao'
+                , client_name: 'JCR Construção Civil'
+                , info: '<p>Construímos um software personalizado para gestão e controle financeiro para uso da empresa</p>'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: '2005'
+            }
+            , {
+                name: 'AuditFone 2'
+                , client_id: 'fastmind'
+                , client_name: 'Fastmind'
+                , info: '<p>Software de análise de faturas telefônicas com o objetivo de detectar inconsistências e erros de cobranças</p>'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: '2005'
+            }
+            , {
+                name: 'Pesquisa de Satisfação'
+                , client_id: 'invensys'
+                , client_name: 'Invensys Appliance Controls Ltda'
+                , info: '<p>Construímos um sistema de questionário on-line para Pesquisa de Satisfação enviada aos clientes da contratante</p>'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: '2005'
+            }
+            , {
+                name: 'Site Y.Takaoka'
+                , client_id: 'ytakaoka'
+                , client_name: 'Y. Takaoka Empreendimentos S.A.'
+                , info: 'Construção do website institucional da Y.Takaoka'
+                , url: ''
+                , year_start: '2003'
+                , year_finish: '2003'
+            }
+            , {
+                name: 'Site Y.Takaoka - Manutenção'
+                , client_id: 'ytakaoka'
+                , client_name: 'Y. Takaoka Empreendimentos S.A.'
+                , info: 'Manutenção de conteúdos do website institucional da Y.Takaoka'
+                , url: ''
+                , year_start: '2003'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Site Institucional - Manutenção'
+                , client_id: 'genesis-empreendimentos-sa'
+                , client_name: 'Gênesis Empreendimentos S.A.'
+                , info: '<p>Serviços de manutenção no projeto do website institucional da empresa Gênesis Empreendimentos S.A. </p>'
+                , url: ''
+                , year_start: '2005'
+                , year_finish: '2009'
+            }
+            , {
+                name: 'Site Institucional'
+                , client_id: 'genesis-empreendimentos-sa'
+                , client_name: 'Gênesis Empreendimentos S.A.'
+                , info: '<p>Criação do website Institucional do Empreendimento Imobiliário Gênesis, na cidade de Barueri - São Paulo - Brasil</p>'
+                , url: ''
+                , year_start: '2004'
+                , year_finish: '2005'
+            }
+            , {
                 name: 'Software de Gestão'
                 , client_id: 'eccosafety'
-                , info: '<p>Construímos o sistema de Gerenciamento de Normas Técnicas Ambientais na qual a contratante gerenciava prazos de requisitos para seus clientes</p>'
+                , client_name: 'EccoSafety'
+                , info: '<p>Software para Gerenciamento de Cumprimento de Normas Técnicas Ambientais</p>'
                 , url: ''
                 , year_start: '2004'
                 , year_finish: '2005'
@@ -99,6 +615,7 @@
             {
                 name: 'Website Institucional'
                 , client_id: 'eccosafety'
+                , client_name: 'EccoSafety'
                 , info: '<p>Criação do website corporativo da empresa, com uso de tecnologias HTML, CSS, JS</p>'
                 , url: ''
                 , year_start: '2004'
@@ -108,22 +625,25 @@
             {
                 name: 'Credenciamento e Check-in'
                 , client_id: 'midia-grupo'
+                , client_name: 'Mídia Grupo'
                 , info: '<p>Sistema para Credenciamento e Administração de Participantes</p><p>Construímos um software para credenciamento de visitantes para eventos como feiras comerciais, nas quais o visitante poderia se credenciar on-line e posteriormente, nas datas do evento o</p>'
                 , url: ''
                 , year_start: '2004'
-                , year_finish: '2004'
+                , year_finish: '2005'
             }
             , {
                 name: 'Site Revista CULT'
                 , client_id: 'editora-bregantini'
+                , client_name: 'Editora Bregantini'
                 , info: '<p>Manutenção do website da Revista CULT</p><p>Construída na plataforma Wordpress, nosso trabalho foi realizar manutenções no projeto conforme a demanda do cliente</p>'
                 , url: ''
                 , year_start: '2004'
                 , year_finish: '2004'
             }
             , {
-                name: 'Site Gênesis 1 - Módulo documentos'
+                name: 'Gestão de Documentos'
                 , client_id: 'residencial-genesis-1'
+                , client_name: 'Residencial Gênesis I'
                 , info: '<p>Desenvolvimento de módulo para publicação de documentos no website do residencial</p>' +
                     '<p>O projeto foi construído com tecnologias HTML, Javascript, CSS, Flash</p>'
                 , url: ''
@@ -131,24 +651,9 @@
                 , year_finish: '2004'
             }
             , {
-                name: 'Site Y.Takaoka'
-                , client_id: 'ytakaoka'
-                , info: 'Construção do website institucional da Y.Takaoka'
-                , url: ''
-                , year_start: '2003'
-                , year_finish: '2003'
-            }
-            , {
-                name: 'Site Y.Takaoka - Manutenção'
-                , client_id: 'ytakaoka'
-                , info: 'Manutenção de conteúdos do website institucional da Y.Takaoka'
-                , url: ''
-                , year_start: '2003'
-                , year_finish: '2004'
-            }
-            , {
-                name: 'Site Gênesis 1'
+                name: 'Site Institucional Gênesis 1'
                 , client_id: 'residencial-genesis-1'
+                , client_name: 'Residencial Gênesis I'
                 , info: '<p>Construção do website institucional do Residencial Gênesis 1</p>' +
                     '<p>O projeto foi construído com tecnologias HTML, Javascript, CSS, Flash</p>'
                 , url: ''
@@ -156,29 +661,34 @@
                 , year_finish: '2004'
             }
             ,  {
-                name: 'CEMA Legal'
-                , client_id: 'cema'
-                , info: 'Manutenção do sistema CEMA Legal<p>Projeto construído com tecnologia Microsoft Visual Basic e banco de dados Microsoft Access</p>'
-                , url: ''
-                , year_start: '2003'
-                , year_finish: '2004'
-            }
-            ,  {
                 name: 'CEMA Legal - Arquitetura'
                 , client_id: 'cema'
+                , client_name: 'CEMA'
                 , info: '<p>Projeto de Reestruturação da base de dados do sistema</p><p>Planejamos um novo modelo de dados e executamos sua implementação, assim como a migração dos dados existentes</p>'
                 , url: ''
                 , year_start: '2004'
                 , year_finish: '2004'
             }
+            ,  {
+                name: 'CEMA Legal'
+                , client_id: 'cema'
+                , client_name: 'CEMA'
+                , info: 'Manutenção do sistema CEMA Legal<p>Projeto construído com tecnologia Microsoft Visual Basic e banco de dados Microsoft Access</p>'
+                , url: ''
+                , year_start: '2003'
+                , year_finish: '2004'
+            }
             
             
+
+
             
             
             , {
                 name: 'Site Revista Takinha'
                 , client_id: 'ytakaoka'
-                , info: 'Construímos o website da Revista Takinha com uso da tecnologia Flash para simular uma navegação '
+                , client_name: 'Y. Takaoka Empreendimentos S.A.'
+                , info: 'Construímos o website da Revista Takinha com uso da tecnologia Flash trazendo uma experiência de interface similar ao folhear de páginas de uma revista real'
                 , url: ''
                 , year_start: '2010'
                 , year_finish: '2013'
@@ -361,11 +871,17 @@
                 let DOM_footer = document.createElement('div');
                 DOM_footer.classList.add('footer');
                 DOM_item.append(DOM_footer);
+                
+                if (item.client_name){
+                    let DOM_client_name = document.createElement('div');
+                    DOM_client_name.innerHTML = item.client_name;
+                    DOM_client_name.classList.add('client_name');
+                    DOM_header.append(DOM_client_name);
+                }
 
                 let DOM_header_title = document.createElement('h2');
                 DOM_header_title.innerHTML = item.name;
                 DOM_header.append(DOM_header_title);
-
 
                 let year_finish;
                 if ( (item.year_finish=='')||(item.year_finish==undefined) ){
