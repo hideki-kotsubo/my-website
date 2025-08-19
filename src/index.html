@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hideki Kotsubo | Full-Stack Web Developer | Custom Solutions Since 1999</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e8eaed;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a365d;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3182ce;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3182ce;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: #1a365d;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding-top: 80px;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            padding: 2rem 0;
+        }
+
+        .mobile-menu-links a {
+            text-decoration: none;
+            color: #1a365d;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            width: 80%;
+            text-align: center;
+        }
+
+        .mobile-menu-links a:hover {
+            background: #f7fafc;
+            color: #3182ce;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #3182ce;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #4a5568;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            background: #3182ce;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.15);
+        }
+
+        .cta-button:hover {
+            background: #2c5aa0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(49, 130, 206, 0.25);
+        }
+
+        .cta-secondary {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: #3182ce;
+            text-decoration: none;
+            border: 2px solid #3182ce;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #3182ce;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a365d;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: #ffffff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .about-text p {
+            margin-bottom: 1.8rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e0;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3182ce;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f7fafc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #3182ce;
+            border-radius: 12px 12px 0 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e0;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #3182ce;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a365d;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Technologies Section */
+        .technologies {
+            background: #ffffff;
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .tech-category {
+            background: #f7fafc;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tech-category h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .tech-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tech-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3182ce;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-item p {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Methodology Section */
+        .methodology {
+            background: #f7fafc;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e0;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: #3182ce;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.8rem;
+        }
+
+        .step-content p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #ffffff;
+        }
+
+        .project {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e0;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1a365d;
+        }
+
+        .project-subtitle {
+            font-size: 1rem;
+            color: #3182ce;
+            font-weight: 600;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            color: #4a5568;
+        }
+
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-group {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-group h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .feature-group ul {
+            list-style: none;
+            color: #4a5568;
+        }
+
+        .feature-group li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .feature-group li::before {
+            content: '•';
+            color: #3182ce;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tech-tag {
+            padding: 0.5rem 1rem;
+            background: #edf2f7;
+            color: #1a365d;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: #3182ce;
+            color: white;
+            border-color: #3182ce;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #1a365d;
+            color: white;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #1a365d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: #f7fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Professional touches */
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: #3182ce;
+            margin: 0 auto 2rem auto;
+            border-radius: 2px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .description {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .tech-categories {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .step-content {
+                text-align: left;
+            }
+
+            .project-features {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Professional loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Kotsubo, Hideki </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </nav>
+        
+        <div class="mobile-menu">
+            <ul class="mobile-menu-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Full-Stack Web Developer</h1>
+                <p class="subtitle">Creating tailored web solutions since 1999</p>
+                <p class="description">Experienced full-stack developer creating tailored web applications, from enterprise ERPs to content management systems, with deep vanilla JavaScript expertise.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-button">Let's Work Together</a>
+                    <a href="#projects" class="cta-secondary">View Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Over two decades of experience building robust, scalable web solutions that drive business success.</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a self-taught full-stack developer with over 25 years of experience building custom web solutions for businesses of all sizes. Since 1999, I've helped organizations transform their operations through thoughtfully designed applications that prioritize user experience and business outcomes.</p>
+                    
+                    <p>My expertise lies in creating robust, scalable solutions using vanilla JavaScript, HTML, and CSS, ensuring optimal performance without unnecessary framework dependencies. I've successfully guided companies through multiple technology transitions, scaling systems alongside business growth from startup to enterprise level.</p>
+                    
+                    <p>Whether you need a complex enterprise system, content management platform, or innovative web application, I bring both the technical expertise and business acumen necessary to deliver solutions that provide measurable value.</p>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat fade-in">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat fade-in">
+                        <div class="stat-number">400+</div>
+                        <div class="stat-label">Users Served</div>
+                    </div>
+                    <div class="stat fade-in">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Business Units</div>
+                    </div>
+                    <div class="stat fade-in">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Custom Solutions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Comprehensive web development services tailored to meet your specific business requirements and technical objectives.</p>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚡</div>
+                    <h3>Custom Web Applications</h3>
+                    <p>Tailored solutions built from the ground up to address your specific business challenges, utilizing modern web technologies and industry best practices for optimal performance and scalability.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏢</div>
+                    <h3>Enterprise System Development</h3>
+                    <p>Comprehensive business applications including ERP systems, content management platforms, and multi-tenant architectures designed to scale with your organization's growth.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔄</div>
+                    <h3>Legacy System Modernization</h3>
+                    <p>Strategic migration and optimization of existing systems, transitioning from legacy technologies to modern web platforms while preserving critical business functionality.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚀</div>
+                    <h3>Performance-Critical Applications</h3>
+                    <p>High-performance solutions built with vanilla JavaScript, optimized for speed and efficiency without the overhead of heavy frameworks or unnecessary dependencies.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">📱</div>
+                    <h3>Hybrid & PWA Development</h3>
+                    <p>Cross-platform applications that deliver seamless experiences across desktop and mobile devices, featuring offline capabilities and native-like performance.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Full-Stack Development</h3>
+                    <p>End-to-end solutions encompassing frontend interfaces, backend systems, database architecture, API development, and third-party system integrations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technologies" class="technologies">
+        <div class="container">
+            <h2 class="section-title">Technologies & Expertise</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Deep technical expertise across the full development stack, with specialized experience in performance-critical and enterprise-scale applications.</p>
+            
+            <div class="tech-categories">
+                <div class="tech-category fade-in">
+                    <h3>Core Technologies</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <h4>Frontend Development</h4>
+                            <p>JavaScript (ES6+), HTML5, CSS3, Responsive Design, Progressive Web Apps</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Backend Development</h4>
+                            <p>Node.js, Classic ASP, RESTful APIs, Microservices Architecture</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Mobile Development</h4>
+                            <p>Cordova, Cross-platform Apps, iOS & Android Development</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Database Systems</h4>
+                            <p>MS SQL Server, Database Architecture, Performance Optimization, Multi-tenant Design</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Integration & APIs</h4>
+                            <p>Third-party APIs, Payment Systems, Banking Integration, Real-time Processing</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>IoT & Hardware</h4>
+                            <p>Raspberry Pi, GPIO Control, Hardware Integration, Embedded Systems</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category fade-in">
+                    <h3>Specialized Experience</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <h4>System Architecture</h4>
+                            <p>Multi-tenant Platforms, Microservices, Scalable Infrastructure, Legacy Migration</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Real-time Systems</h4>
+                            <p>WebSockets, Live Data Processing, Synchronized Gaming, Competition Platforms</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>IoT & Hardware Integration</h4>
+                            <p>Raspberry Pi Development, GPIO Control, Remote Hardware Control, Embedded Systems</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Mobile Applications</h4>
+                            <p>Cross-platform Development, Cordova Framework, iOS & Android Apps</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Business Applications</h4>
+                            <p>ERP Systems, Content Management, Booking Platforms, Financial Processing</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Performance Optimization</h4>
+                            <p>Vanilla JavaScript Solutions, Database Optimization, Caching Strategies</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category fade-in">
+                    <h3>Industries Served</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <h4>Event Management</h4>
+                            <p>Equipment rental, logistics coordination, financial management systems</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Gaming & Entertainment</h4>
+                            <p>Real-time gaming platforms, competition management, prize distribution</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Hospitality & Real Estate</h4>
+                            <p>Booking systems, space management, corporate meeting solutions</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Content & Media</h4>
+                            <p>Multi-site management, content consolidation, publishing platforms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="methodology" class="methodology">
+        <div class="container">
+            <h2 class="section-title">Development Process</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">A proven methodology focused on understanding business needs, delivering quality solutions, and ensuring long-term success.</p>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Discovery & Analysis</h3>
+                        <p>Comprehensive analysis of business requirements, technical constraints, and user needs. I work closely with stakeholders to understand current challenges and define clear objectives for the solution.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Architecture & Planning</h3>
+                        <p>Design scalable, maintainable system architecture with careful consideration of future growth, technology choices, security requirements, and integration needs.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Iterative Development</h3>
+                        <p>Agile development approach with regular stakeholder feedback, ensuring the solution evolves to meet changing requirements while maintaining quality and timeline commitments.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Quality Assurance</h3>
+                        <p>Comprehensive testing including functionality, security, performance optimization, and user acceptance testing to ensure robust, production-ready solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Deployment & Support</h3>
+                        <p>Smooth production deployment with ongoing support, maintenance, and system optimization to ensure continued performance and user satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">A selection of key projects that demonstrate technical expertise, business impact, and innovative problem-solving across diverse industries.</p>
+            
+            <div class="project fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Multi-Tenant Event Equipment ERP Platform</h3>
+                    <p class="project-subtitle">20-Year Evolution • 400+ Users • 5 Business Units</p>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        A comprehensive business management system that evolved from a simple order tracking application to a sophisticated multi-tenant platform, supporting a company's expansion from basic equipment rentals to a major event services provider operating five distinct business units.
+                    </p>
+                    
+                    <div class="project-features">
+                        <div class="feature-group">
+                            <h4>System Architecture</h4>
+                            <ul>
+                                <li>Microservices architecture with separated API layers</li>
+                                <li>Multi-tenant database design for scalability</li>
+                                <li>Automated background services and integrations</li>
+                                <li>Centralized user management across business units</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <h4>Business Features</h4>
+                            <ul>
+                                <li>Banking system integration for payment processing</li>
+                                <li>Comprehensive financial management and reporting</li>
+                                <li>Advanced inventory and logistics coordination</li>
+                                <li>Third-party software integrations and APIs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">MS SQL Server</span>
+                        <span class="tech-tag">Material Design</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Multi-Site Content Portal & CMS</h3>
+                    <p class="project-subtitle">Content Consolidation • Custom CMS • Legacy Migration</p>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Successfully consolidated dozens of independent websites into a unified content portal with comprehensive management capabilities. Developed custom editing tools for content that previously lacked any management system, enabling efficient content operations across the entire digital portfolio.
+                    </p>
+                    
+                    <div class="project-features">
+                        <div class="feature-group">
+                            <h4>Content Management</h4>
+                            <ul>
+                                <li>WYSIWYG content editing interface</li>
+                                <li>Custom metadata management forms</li>
+                                <li>Content type standardization framework</li>
+                                <li>Unified navigation and site architecture</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <h4>Migration & Integration</h4>
+                            <ul>
+                                <li>Database export and manual content extraction</li>
+                                <li>Content structure standardization process</li>
+                                <li>Legacy system integration and compatibility</li>
+                                <li>Framework restructuring and optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Classic ASP</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">WYSIWYG Editor</span>
+                        <span class="tech-tag">CMS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Air Race X - Distributed Competition Platform</h3>
+                    <p class="project-subtitle">Global Racing • Real-Time Rankings • Algorithmic Fairness</p>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Developed an innovative air racing platform that revolutionizes competitive aviation by enabling pilots to compete from their home locations while maintaining fair and verified results through sophisticated data processing and algorithmic fairness systems.
+                    </p>
+                    
+                    <div class="project-features">
+                        <div class="feature-group">
+                            <h4>Competition Management</h4>
+                            <ul>
+                                <li>Distributed global racing coordination</li>
+                                <li>Real-time ranking calculation and display</li>
+                                <li>Comprehensive tournament management tools</li>
+                                <li>Pilot account and team management system</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <h4>Fairness & Validation</h4>
+                            <ul>
+                                <li>File verification and validation systems</li>
+                                <li>Weather condition handicap calculations</li>
+                                <li>GPS location-based race adjustments</li>
+                                <li>Wind speed and environmental compensation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Real-time Processing</span>
+                        <span class="tech-tag">Public API</span>
+                        <span class="tech-tag">Algorithms</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Doodoo - Real-Time Quiz Gaming Platform</h3>
+                    <p class="project-subtitle">Startup Project • Cross-Platform Mobile • Synchronized Gaming</p>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Founded and developed a real-time quiz gaming platform featuring synchronized daily competitions. Players compete in precisely timed trivia games where questions are delivered simultaneously to all participants, with only correct answers advancing to the next round. Built using vanilla web technologies and deployed as native mobile apps.
+                    </p>
+                    
+                    <div class="project-features">
+                        <div class="feature-group">
+                            <h4>Real-Time Gaming Engine</h4>
+                            <ul>
+                                <li>WebSocket-based synchronized question delivery</li>
+                                <li>10-second response window with elimination rounds</li>
+                                <li>Simultaneous gameplay across all connected devices</li>
+                                <li>Progressive elimination (only correct answers advance)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <h4>Platform & Distribution</h4>
+                            <ul>
+                                <li>Cross-platform mobile apps (iOS & Android)</li>
+                                <li>One daily game at scheduled time</li>
+                                <li>Prize sharing system among all winners</li>
+                                <li>Event-based participation model</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Vanilla JavaScript</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Cordova</span>
+                        <span class="tech-tag">WebSockets</span>
+                        <span class="tech-tag">Real-time Sync</span>
+                        <span class="tech-tag">Mobile Apps</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Click-Office - Smart Meeting Room Platform</h3>
+                    <p class="project-subtitle">IoT Integration • Mobile Apps • Hardware Control</p>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Innovative meeting room booking platform that combines mobile applications, payment processing, and IoT hardware integration. Users book meeting rooms through mobile apps and unlock doors directly from their phones during reserved time slots. Built the complete system including mobile apps, backend infrastructure, and Raspberry Pi-based door control hardware.
+                    </p>
+                    
+                    <div class="project-features">
+                        <div class="feature-group">
+                            <h4>Smart Access Control</h4>
+                            <ul>
+                                <li>Mobile app-controlled door unlocking system</li>
+                                <li>Session-based access (button enabled only during rental)</li>
+                                <li>Raspberry Pi hardware integration with physical locks</li>
+                                <li>Real-time WebSocket communication with door hardware</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-group">
+                            <h4>Complete Platform</h4>
+                            <ul>
+                                <li>Cross-platform mobile apps (iOS & Android)</li>
+                                <li>Real-time booking and payment processing</li>
+                                <li>Backend API with payment gateway integration</li>
+                                <li>GPIO pin control for physical lock mechanisms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Mobile Apps</span>
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">IoT Integration</span>
+                        <span class="tech-tag">WebSockets</span>
+                        <span class="tech-tag">Payment API</span>
+                        <span class="tech-tag">Hardware Control</span>
+                        <span class="tech-tag">GPIO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Discuss Your Project</h2>
+                <p>Ready to transform your business operations with a custom web solution? I'm available for freelance projects and open to discussing full-time opportunities with the right organization.</p>
+                
+                <div class="contact-links">
+                    <a href="mailto:hideki.kotsubo@gmail.com" class="contact-link">Send Email</a>
+                    <a href="tel:+12365911371" class="contact-link">Schedule Call</a>
+                    <a href="https://www.linkedin.com/in/hideki-kotsubo/" class="contact-link" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Professional header behavior
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.borderBottom = '1px solid #cbd5e0';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.borderBottom = '1px solid #e8eaed';
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Professional smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
